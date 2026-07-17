@@ -1,0 +1,241 @@
+.practices-section {
+  background-color: var(--bg-secondary);
+}
+
+.practices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .practices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .practices-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Practice Card */
+.practice-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 40px 30px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: var(--transition-smooth);
+}
+
+.practice-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), var(--shadow-gold);
+}
+
+.practice-card-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(197, 168, 128, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+}
+
+.practice-card:hover .practice-card-icon {
+  background-color: var(--accent-gold);
+  color: var(--bg-primary);
+  border-color: var(--accent-gold);
+  transform: rotateY(180deg);
+}
+
+.practice-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 16px;
+  letter-spacing: 0.01em;
+}
+
+.practice-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.practice-card-link {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  transition: var(--transition-quick);
+}
+
+.practice-card:hover .practice-card-link {
+  color: var(--accent-gold-light);
+  transform: translateX(4px);
+}
+
+/* Practice Details Modal Backdrop */
+.practice-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(6, 17, 11, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Practice Modal Card */
+.practice-modal {
+  width: 100%;
+  max-width: 650px;
+  border-radius: 4px;
+  padding: 40px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(197, 168, 128, 0.08);
+  animation: modalScaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalScaleUp {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.practice-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--text-secondary);
+  padding: 8px;
+  border-radius: 50%;
+  transition: var(--transition-quick);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+}
+
+.practice-modal-close:hover {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  background-color: rgba(197, 168, 128, 0.08);
+}
+
+.practice-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.practice-modal-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(197, 168, 128, 0.08);
+  border: 1px solid var(--border-color);
+  color: var(--accent-gold);
+}
+
+.practice-modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.practice-modal-desc {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  margin-bottom: 28px;
+}
+
+.practice-modal-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--accent-gold);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.practice-modal-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.practice-modal-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.practice-modal-item .checkmark {
+  color: var(--accent-gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.practice-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-cta {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .practice-modal {
+    padding: 30px 20px;
+  }
+  .practice-modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .practice-modal-title {
+    font-size: 1.25rem;
+  }
+}
