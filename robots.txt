@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://damlabasak.github.io/mk-partners/sitemap.xml
