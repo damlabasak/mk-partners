@@ -1,0 +1,290 @@
+.career-section {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .career-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Left Column: Info & Positions */
+.career-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.career-info-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.career-info-desc {
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* Position Cards List */
+.career-positions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.career-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.career-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background-color: var(--accent-gold);
+  opacity: 0.4;
+  transition: var(--transition-quick);
+}
+
+.career-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.career-card:hover::before {
+  opacity: 1;
+  box-shadow: 0 0 10px var(--accent-gold);
+}
+
+.career-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.career-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.career-badge {
+  font-size: 0.75rem;
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background-color: rgba(197, 168, 128, 0.1);
+  color: var(--accent-gold);
+  border: 1px solid rgba(197, 168, 128, 0.25);
+}
+
+.career-card-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.career-card-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.career-feature-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.career-feature-icon {
+  color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+/* Values / Culture Box */
+.career-culture-box {
+  background: linear-gradient(135deg, rgba(197, 168, 128, 0.04), rgba(11, 29, 20, 0.6));
+  border: 1px dashed var(--border-hover);
+  padding: 24px;
+  border-radius: 4px;
+}
+
+.career-culture-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.career-culture-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Form Section */
+.career-form-wrapper {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 576px) {
+  .career-form-wrapper {
+    padding: 30px 20px;
+  }
+}
+
+.career-form-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.career-form-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+/* Drag and Drop File Upload Area */
+.file-upload-container {
+  margin-bottom: 24px;
+}
+
+.file-upload-dropzone {
+  border: 2px dashed var(--border-hover);
+  border-radius: 4px;
+  padding: 28px 20px;
+  text-align: center;
+  background-color: rgba(11, 29, 20, 0.5);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.file-upload-dropzone:hover,
+.file-upload-dropzone.drag-active {
+  border-color: var(--accent-gold);
+  background-color: rgba(197, 168, 128, 0.06);
+  box-shadow: 0 0 15px rgba(197, 168, 128, 0.08);
+}
+
+.file-upload-icon {
+  color: var(--accent-gold);
+  margin-bottom: 10px;
+  transition: var(--transition-quick);
+}
+
+.file-upload-dropzone:hover .file-upload-icon {
+  transform: translateY(-3px);
+}
+
+.file-upload-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.file-upload-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.file-selected-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--accent-gold-dark);
+  padding: 14px 18px;
+  border-radius: 4px;
+}
+
+.file-selected-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.file-icon {
+  color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-size {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.file-remove-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-quick);
+  flex-shrink: 0;
+}
+
+.file-remove-btn:hover {
+  color: #ea868f;
+  background-color: rgba(220, 53, 69, 0.1);
+}

@@ -6,6 +6,7 @@ import '@/styles/components/Hero.css';
 import '@/styles/components/About.css';
 import '@/styles/components/Practices.css';
 import '@/styles/components/Team.css';
+import '@/styles/components/Career.css';
 import '@/styles/components/Contact.css';
 import '@/styles/components/Footer.css';
 

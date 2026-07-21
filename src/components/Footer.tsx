@@ -53,6 +53,7 @@ export const Footer: React.FC = () => {
               <li><a href="#about" onClick={(e) => handleLinkClick(e, '#about')}>Hakkımızda</a></li>
               <li><a href="#practices" onClick={(e) => handleLinkClick(e, '#practices')}>Faaliyet Alanları</a></li>
               <li><a href="#team" onClick={(e) => handleLinkClick(e, '#team')}>Ekibimiz</a></li>
+              <li><a href="#career" onClick={(e) => handleLinkClick(e, '#career')}>Kariyer</a></li>
               <li><a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>İletişim</a></li>
             </ul>
           </div>

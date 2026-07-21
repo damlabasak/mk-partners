@@ -14,6 +14,7 @@ export const Navbar: React.FC = () => {
     { label: 'Hakkımızda', href: '#about', id: 'about' },
     { label: 'Faaliyet Alanları', href: '#practices', id: 'practices' },
     { label: 'Ekibimiz', href: '#team', id: 'team' },
+    { label: 'Kariyer', href: '#career', id: 'career' },
     { label: 'İletişim', href: '#contact', id: 'contact' },
   ];
 
