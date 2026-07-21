@@ -16,8 +16,8 @@ export default function Home() {
         <About />
         <Practices />
         <Team />
-        <Career />
         <Contact />
+        <Career />
       </main>
       <Footer />
     </>

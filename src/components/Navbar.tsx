@@ -14,8 +14,8 @@ export const Navbar: React.FC = () => {
     { label: 'Hakkımızda', href: '#about', id: 'about' },
     { label: 'Faaliyet Alanları', href: '#practices', id: 'practices' },
     { label: 'Ekibimiz', href: '#team', id: 'team' },
-    { label: 'Kariyer', href: '#career', id: 'career' },
     { label: 'İletişim', href: '#contact', id: 'contact' },
+    { label: 'Kariyer', href: '#career', id: 'career' },
   ];
 
   // Track scroll position for header visual effect
