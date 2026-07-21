@@ -10,7 +10,6 @@ interface TeamMember {
   title: string;
   initials: string;
   email: string;
-  linkedin: string;
   specialty: string;
   bio: string;
   education: string[];
@@ -22,60 +21,55 @@ export const Team: React.FC = () => {
 
   const team: TeamMember[] = [
     {
-      name: 'Av. Özgün Gizem Meteoğlu (LL.M)',
+      name: 'Av. Özgün Gizem Meteoğlu (LL.M.)',
       title: 'Kurucu Ortak',
       initials: 'OGM',
-      email: 'ozgun.gizem.meteglu@mkpartners.com',
-      linkedin: 'https://linkedin.com',
-      specialty: 'Bilişim Hukuku, KVKK & Veri Koruma, Fikri Mülkiyet Hukuku',
-      bio: 'Özgün Gizem Meteoğlu, bilişim hukuku, KVKK/GDPR uyum süreçleri ve marka/telif hakları uyuşmazlıkları konularında uzmanlaşmıştır. Birçok teknoloji firması ve e-ticaret platformuna veri envanteri hazırlığı, aydınlatma metinleri ve sözleşmeler bazında danışmanlık vermektedir.',
+      email: 'ozgungizem@meteoglukaya.com',
+      specialty: 'İş Hukuku, Kurumsal Danışmanlılk, İşçi-işveren Uyuşmazlıkları',
+      bio: 'Av. Özgün Gizem Meteoğlu (LL.M.), iş hukuku, kurumsal danışmanlık ve işçi-işveren uyuşmazlıkları alanlarında çalışmalarını sürdürmektedir. Kariyeri boyunca Türkiye’nin önde gelen şirketlerine iş hukuku danışmanlığı sağlamış; dava yönetimi, arabuluculuk, insan kaynakları süreçleri ve hukuki risk yönetimi konularında kapsamlı tecrübe edinmiştir. Bunun yanı sıra fikri mülkiyet hukuku, teknoloji hukuku ve kişisel verilerin korunması (KVKK/GDPR) alanlarında danışmanlık hizmeti vermektedir. “İş Hukukunda Eşitlik İlkesi ve Ayrımcılık Yasaklarına Aykırılık ve Sonuçları” adlı kitabın yazarı olan Meteoğlu, akademik birikimini uygulamadaki deneyimiyle birleştirerek yerli ve yabancı müvekkillerine stratejik, önleyici ve sonuç odaklı hukuki çözümler sunmaktadır.',
       education: [
-        'İstanbul Üniversitesi Hukuk Fakültesi (Lisans)',
-        'Münih Ludwig Maximilian Üniversitesi - Fikri Mülkiyet ve Teknoloji Hukuku (LL.M.)'
+        'Doğuş Üniversitesi Hukuk Fakültesi (Lisans)',
+        'Doğuş Üniversitesi Özel Hukuk Yüksek Lisans Programı (Tezli) | Tam Burslu (LL.M.)',
+        'Tez: "İş Hukukunda Eşitlik İlkesi ve Ayrımcılık Yasaklarına Aykırılık ve Sonuçları"'
       ],
-      languages: ['Türkçe (Anadil)', 'İngilizce (İleri Düzey)', 'Almanca (Orta Düzey)']
+      languages: ['Türkçe', 'İngilizce']
     },
     {
       name: 'Av. Osman Mete Meteoğlu',
       title: 'Kurucu Ortak',
       initials: 'OMM',
-      email: 'osman.mete.meteglu@mkpartners.com',
-      linkedin: 'https://linkedin.com',
-      specialty: 'Şirketler Hukuku, Birleşme & Devralmalar (M&A), Uluslararası Ticaret Hukuku',
-      bio: 'Osman Mete Meteoğlu, MK Partners\'ın kurucu ortağıdır. Özellikle yerli ve yabancı şirketlerin birleşme ve devralma süreçlerinde, ortak girişimlerin kurulmasında ve uluslararası ticari sözleşmelerin müzakeresinde 15 yılı aşkın süredir danışmanlık yapmaktadır. M&A projelerinde Due Diligence süreçlerinden işlem kapanışına kadar tüm safhaları yönetmektedir.',
+      email: 'mete@meteoglukaya.com',
+      specialty: 'Şirketler Hukuku, Ticaret Hukuku, Kurumsal Danışmanlık',
+      bio: 'Av. Osman Mete Meteoğlu, ticaret hukuku, şirketler hukuku ve kurumsal danışmanlık alanlarında uzmanlaşmıştır. Türkiye’nin önde gelen holdingleri, sanayi kuruluşları ve kurumsal şirketlerine verdiği danışmanlık hizmetleri kapsamında ticari uyuşmazlıklar, kurumsal yönetişim, mevzuata uyum, sermaye piyasası uygulamaları ve sözleşme yönetimi alanlarında önemli deneyim edinmiştir. Yönetici avukat olarak ekip yönetimi, hukuki risk analizi ve stratejik dava yönetimi süreçlerine liderlik etmiş; şirket yapılanmaları, birleşme ve devralmalar (M&A) ile ticari sözleşmeler konusunda yerli ve yabancı müvekkillerine kapsamlı hukuki danışmanlık sunmaktadır. Uluslararası projelerde aktif görev alarak özellikle Almanya ve İtalya merkezli profesyonel iş ağları oluşturmuş, farklı hukuk sistemleriyle çalışma ve uluslararası iş geliştirme alanlarında önemli bir vizyon kazanmıştır.',
       education: [
-        'Galatasaray Üniversitesi Hukuk Fakültesi (Lisans, Dereceyle Mezuniyet)',
-        'Université Paris 1 Panthéon-Sorbonne - Uluslararası Ticaret Hukuku (LL.M.)'
+        'Doğuş Üniversitesi Hukuk Fakültesi (Lisans)'
       ],
-      languages: ['Türkçe (Anadil)', 'İngilizce (İleri Düzey)', 'Fransızca (İleri Düzey)']
+      languages: ['Türkçe', 'İngilizce']
     },
     {
       name: 'Av. Selman Kaya',
       title: 'Kurucu Ortak',
       initials: 'SK',
-      email: 'selman.kaya@mkpartners.com',
-      linkedin: 'https://linkedin.com',
-      specialty: 'Uyuşmazlık Çözümü, Tahkim, İş Hukuku ve İcra-İflas Hukuku',
-      bio: 'Selman Kaya, ticari uyuşmazlıklar, idari davalar ve iş hukuku alanlarında derin bir tecrübeye sahiptir. Ulusal ve uluslararası şirketleri tahkim kurullarında ve mahkemelerde başarıyla temsil etmektedir. İşçi-işveren ilişkilerinin yapılandırılması ve toplu iş sözleşmesi süreçlerinde aktif rol üstlenmektedir.',
+      email: 'selman@meteoglukaya.com',
+      specialty: 'İcra ve Ceza Hukuku, Ticari Alacakların Tahsili, Ceza ve İnfaz Hukuku, Aile Hukuku, Gayrimenkul Hukuku',
+      bio: 'Av. Selman Kaya, icra ve iflas hukuku, ticari alacakların tahsili, ceza ve infaz hukuku, aile hukuku ile gayrimenkul hukuku alanlarında uzmanlaşmıştır. Kariyeri boyunca Türkiye’nin önde gelen şirketleri, finans kuruluşları ve bankalara icra takipleri, alacak yönetimi ve hukuki risk süreçlerinde danışmanlık vermiş; yüksek hacimli takip dosyalarının planlanması ve yürütülmesinde önemli deneyim kazanmıştır. Çek, senet ve diğer kambiyo senetlerinden kaynaklanan alacakların tahsili ile ticari alacak yönetimi süreçlerinde etkin rol üstlenmiş, bankaların ve kurumsal şirketlerin tahsilat stratejilerinin oluşturulması ve uygulanmasına yönelik kapsamlı hukuki danışmanlık sunmuştur. Bunun yanı sıra ceza ve infaz hukuku, boşanma davaları, mal rejiminin tasfiyesi, velayet, nafaka ve diğer aile hukukundan kaynaklanan uyuşmazlıklar ile gayrimenkul hukukuna ilişkin davalarda bireysel ve kurumsal müvekkillerini temsil etmekte; dava öncesinden kararın infazına kadar tüm süreçlerde stratejik, hızlı ve sonuç odaklı hukuki danışmanlık sunmaktadır.',
       education: [
-        'İstanbul Bilgi Üniversitesi Hukuk Fakültesi (Lisans)',
-        'İstanbul Bilgi Üniversitesi - Ekonomi Hukuku (Yüksek Lisans Dersleri)'
+        'Doğuş Üniversitesi Hukuk Fakültesi (Lisans)'
       ],
-      languages: ['Türkçe (Anadil)', 'İngilizce (İleri Düzey)']
+      languages: ['Türkçe', 'İngilizce']
     },
     {
-      name: 'Av. Leman Melike Gülmez (LL.M)',
+      name: 'Av. Leman Melike Gülmez (LL.M.)',
       title: 'Avukat',
       initials: 'LMG',
-      email: 'leman.melike.gulmez@mkpartners.com',
-      linkedin: 'https://linkedin.com',
-      specialty: 'Bilişim Hukuku, KVKK & Veri Koruma, Fikri Mülkiyet Hukuku',
-      bio: 'Leman Melike Gülmez, bilişim hukuku, KVKK/GDPR uyum süreçleri ve marka/telif hakları uyuşmazlıkları konularında uzmanlaşmıştır. Birçok teknoloji firması ve e-ticaret platformuna veri envanteri hazırlığı, aydınlatma metinleri ve sözleşmeler bazında danışmanlık vermektedir.',
+      email: 'lemanmelike@meteoglukaya.com',
+      specialty: 'AB Uyum Süreçleri ve Sözleşmeler, Uluslararası Ticaret Hukuku, Yatırım Danışmanlığı',
+      bio: 'Av. Leman Melike Gülmez (LL.M.), Avrupa Birliği hukuku, uluslararası ticaret hukuku ve yatırım danışmanlığı alanlarında çalışmalarını sürdürmektedir. Avrupa Birliği Hukuku ve Ekonomi alanındaki yüksek lisans eğitimini Sapienza Üniversitesi (Roma) bünyesinde tamamladıktan sonra mesleki faaliyetlerini İtalya’da sürdürmüş ve MK Partners’ın Avrupa yapılanmasının geliştirilmesinde aktif rol üstlenmiştir. Roma merkezli olarak Avrupa’daki kişi ve şirketlere Türkiye’deki hukuki süreçlerde danışmanlık sunarken, Türk şirketlerinin Avrupa Birliği mevzuatına uyum süreçleri ile Avrupa Birliği ülkelerinde faaliyet gösteren şirketlerin Türkiye’deki yatırım ve ticari faaliyetlerine ilişkin kapsamlı hukuki destek sağlamaktadır. Avrupa Birliği mevzuatı, sınır ötesi ticari ilişkiler ve uluslararası sözleşmeler konusunda danışmanlık veren Gülmez, ileri düzey İngilizce ve İtalyanca bilgisi sayesinde uluslararası müvekkilleriyle doğrudan iletişim kurarak stratejik ve çözüm odaklı hukuki danışmanlık sunmaktadır.MK Partners’ın Roma ofisi aracılığıyla Avrupa ile Türkiye arasında faaliyet gösteren kişi ve şirketlere sınır ötesi hukuki danışmanlık sunmakta; uluslararası yatırım, ticaret ve mevzuata uyum süreçlerinde müvekkillerine güvenilir bir çözüm ortağı olarak hizmet vermektedir.',
       education: [
-        'İstanbul Üniversitesi Hukuk Fakültesi (Lisans)',
-        'Münih Ludwig Maximilian Üniversitesi - Fikri Mülkiyet ve Teknoloji Hukuku (LL.M.)'
+        'Gaziantep Üniversitesi Hukuk Fakültesi (Lisans)',
+        'Roma Sapienza Üniversitesi - European Studies, Law and Economics (LL.M.)'
       ],
-      languages: ['Türkçe (Anadil)', 'İngilizce (İleri Düzey)', 'Almanca (Orta Düzey)']
+      languages: ['Türkçe', 'İngilizce', 'İtalyanca']
     }
   ];
 
@@ -141,14 +135,6 @@ export const Team: React.FC = () => {
                       <a href={`mailto:${activeMember.email}`} title={activeMember.email}>
                         <Mail size={16} />
                         <span>E-posta Gönder</span>
-                      </a>
-                      <a href={activeMember.linkedin} target="_blank" rel="noopener noreferrer">
-                        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                          <rect x="2" y="9" width="4" height="12"></rect>
-                          <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                        <span>LinkedIn</span>
                       </a>
                     </div>
                   </div>

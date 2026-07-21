@@ -163,7 +163,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4>Telefon</h4>
-                  <a href="tel:+902125555555">+90 (212) 555 55 55</a>
+                  <a href="tel:+905054296196">+90 (505) 429 61 96</a>
                 </div>
               </div>
 
@@ -173,14 +173,14 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4>E-posta</h4>
-                  <a href="mailto:info@mkpartners.com">info@mkpartners.com</a>
+                  <a href="mailto:info@meteoglukaya.com">info@meteoglukaya.com</a>
                 </div>
               </div>
             </div>
 
             {/* Quick WhatsApp Action Button */}
             <a
-              href="https://wa.me/905555555555"
+              href="https://wa.me/905054296196"
               target="_blank"
               rel="noopener noreferrer"
               className="whatsapp-btn btn-gold"
@@ -375,7 +375,7 @@ export const Contact: React.FC = () => {
 
                 <h4>5. Kanun Kapsamındaki Haklarınız</h4>
                 <p>
-                  KVKK’nın 11. maddesi kapsamında; verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, eksik veya yanlış işlenmişse düzeltilmesini isteme ve verilerinizin silinmesini talep etme haklarına sahipsiniz. Haklarınızı kullanmak için <strong>info@mkpartners.com</strong> adresine yazılı talepte bulunabilirsiniz.
+                  KVKK’nın 11. maddesi kapsamında; verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, eksik veya yanlış işlenmişse düzeltilmesini isteme ve verilerinizin silinmesini talep etme haklarına sahipsiniz. Haklarınızı kullanmak için <strong>info@meteoglukaya.com</strong> adresine yazılı talepte bulunabilirsiniz.
                 </p>
               </div>
             </div>

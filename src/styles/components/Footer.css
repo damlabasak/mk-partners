@@ -24,6 +24,7 @@
     grid-template-columns: 1.2fr 0.8fr 1fr;
     gap: 30px;
   }
+
   /* Push disclaimer to full width on tablet */
   .footer-disclaimer {
     grid-column: span 3;
@@ -35,6 +36,7 @@
     grid-template-columns: 1fr;
     gap: 36px;
   }
+
   .footer-disclaimer {
     grid-column: span 1;
   }
@@ -117,11 +119,9 @@
   line-height: 1.6;
   color: var(--text-secondary);
   margin-bottom: 14px;
-}
-
-.footer-contact-item strong {
-  color: var(--accent-gold);
-  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* Disclaimer block */

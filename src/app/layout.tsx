@@ -112,8 +112,8 @@ export default function RootLayout({
     image: 'https://mkpartners.com/mk-logo.png',
     description:
       'MK Partners, Türkiye genelinde ve Roma\'da yer alan güçlü avukat ağıyla yerli ve yabancı müvekkillere yüksek kalitede hukuki danışmanlık ve avukatlık hizmetleri sunan premium bir hukuk bürosudur.',
-    telephone: '+902125555555',
-    email: 'info@mkpartners.com',
+    telephone: '+905054296196',
+    email: 'info@meteoglukaya.com',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'TR',
@@ -129,7 +129,7 @@ export default function RootLayout({
       'Teknoloji, Bilişim & KVKK',
     ],
     founder: [
-      { '@type': 'Person', name: 'Av. Özgün Gizem Meteoğlu (LL.M)' },
+      { '@type': 'Person', name: 'Av. Özgün Gizem Meteoğlu (LL.M.)' },
       { '@type': 'Person', name: 'Av. Osman Mete Meteoğlu' },
       { '@type': 'Person', name: 'Av. Selman Kaya' },
     ],

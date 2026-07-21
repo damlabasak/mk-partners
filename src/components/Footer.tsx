@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Logo } from './Logo';
-import { Mail, ArrowUp } from 'lucide-react';
+import { Mail, ArrowUp, Phone } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const handleScrollToTop = () => {
@@ -33,26 +33,21 @@ export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="container footer-container">
-        
+
         {/* Main Grid */}
         <div className="footer-grid">
-          
+
           {/* Col 1: Brand Info */}
           <div className="footer-brand">
             <Logo variant="horizontal" height={36} className="footer-logo" />
             <p className="footer-brand-text">
-              Dürüstlük, mükemmeliyetçilik ve müvekkil odaklılık prensipleri üzerine inşa edilen modern hukuk çözümleri.
+              MK Partners olarak, müvekkillerimizin ihtiyaçlarına özel, stratejik ve etik değerlere bağlı hukuki çözümler üretmek için çalışıyoruz.
             </p>
-            <div className="footer-socials">
-              <a href="mailto:info@mkpartners.com" aria-label="E-posta">
-                <Mail size={18} />
-              </a>
-            </div>
           </div>
 
           {/* Col 2: Navigation Links */}
           <div className="footer-nav">
-            <h4 className="footer-title">Navigasyon</h4>
+            <h4 className="footer-title">Menü</h4>
             <ul className="footer-links">
               <li><a href="#hero" onClick={(e) => handleLinkClick(e, '#hero')}>Ana Sayfa</a></li>
               <li><a href="#about" onClick={(e) => handleLinkClick(e, '#about')}>Hakkımızda</a></li>
@@ -66,10 +61,10 @@ export const Footer: React.FC = () => {
           <div className="footer-contact">
             <h4 className="footer-title">İletişim</h4>
             <p className="footer-contact-item">
-              <strong>T:</strong> +90 (212) 555 55 55
+              <Phone size={18} /> +90 (505) 429 61 96
             </p>
             <p className="footer-contact-item">
-              <strong>M:</strong> info@mkpartners.com
+              <Mail size={18} /> info@meteoglukaya.com
             </p>
           </div>
 
@@ -77,7 +72,7 @@ export const Footer: React.FC = () => {
           <div className="footer-disclaimer">
             <h4 className="footer-title">Yasal Uyarı</h4>
             <p className="footer-disclaimer-text">
-              Bu web sitesinde yer alan her türlü bilgi, materyal ve yayınlar Türkiye Barolar Birliği\'nin Meslek Kuralları ve ilgili mevzuatına uygun olarak, reklam amacı güdülmeksizin yalnızca bilgilendirme amacıyla hazırlanmıştır.
+              Bu web sitesinde yer alan her türlü bilgi, materyal ve yayınlar Türkiye Barolar Birliği'nin Meslek Kuralları ve ilgili mevzuatına uygun olarak, reklam amacı güdülmeksizin yalnızca bilgilendirme amacıyla hazırlanmıştır.
             </p>
           </div>
 
@@ -88,11 +83,11 @@ export const Footer: React.FC = () => {
           <p className="copyright">
             &copy; {new Date().getFullYear()} MK Partners Legal Consultancy. Tüm Hakları Saklıdır.
           </p>
-          
+
           {/* Scroll to Top Button */}
-          <button 
-            onClick={handleScrollToTop} 
-            className="scroll-top-btn" 
+          <button
+            onClick={handleScrollToTop}
+            className="scroll-top-btn"
             aria-label="Yukarı çık"
           >
             <span>Yukarı</span>

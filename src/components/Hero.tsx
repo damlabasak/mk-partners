@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
     <section id="hero" className="hero-section">
       {/* Background Banner Image */}
       <div className="hero-background-image"></div>
-      
+
       {/* Delicate grid pattern overlay */}
       <div className="hero-grid"></div>
 
@@ -32,25 +32,25 @@ export const Hero: React.FC = () => {
       <div className="hero-glass-panel reveal">
         <div className="hero-left-content">
           <span className="hero-subtitle">MK Partners Legal Consultancy</span>
-          
+
           <h1 className="hero-title">
-            Geleceği Şekillendiren <br />
-            <span className="gold-text">Hukuki Çözümler</span>
+            Stratejik Hukuk <br />
+            <span className="gold-text">Kalıcı Güven</span>
           </h1>
-          
+
           <p className="hero-description">
-            Türkiye genelinde ve Roma'da yer alan güçlü avukat ağımızla, yerli ve uluslararası müvekkillerimize ticaret hukukundan uyuşmazlık çözümüne kadar geniş bir yelpazede yüksek standartlı, dinamik ve çözüm odaklı danışmanlık hizmeti sunuyoruz.
+            MK Partners olarak Türkiye ve Avrupa’da kişi ve şirketlere dava takibi, uyuşmazlık çözümü ve hukuki danışmanlık alanlarında yüksek standartlarda hizmet sunuyoruz.
           </p>
 
           <div className="hero-buttons">
-            <button 
-              onClick={() => handleScrollTo('practices')} 
+            <button
+              onClick={() => handleScrollTo('practices')}
               className="btn-gold-solid"
             >
               Faaliyet Alanlarımız
             </button>
-            <button 
-              onClick={() => handleScrollTo('contact')} 
+            <button
+              onClick={() => handleScrollTo('contact')}
               className="btn-gold"
             >
               Bize Ulaşın
@@ -60,8 +60,8 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Smooth scroll down indicator */}
-      <button 
-        className="hero-scroll-indicator" 
+      <button
+        className="hero-scroll-indicator"
         onClick={() => handleScrollTo('about')}
         aria-label="Aşağı kaydır"
       >

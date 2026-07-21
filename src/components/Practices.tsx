@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Briefcase, Landmark, ShieldAlert, FileText, Home, Cpu, X, CheckCircle } from 'lucide-react';
+import { Briefcase, Landmark, ShieldAlert, FileText, Home, Cpu, X, CheckCircle, ScrollText } from 'lucide-react';
 
 interface PracticeArea {
   id: string;
@@ -31,17 +31,17 @@ export const Practices: React.FC = () => {
       ]
     },
     {
-      id: 'ma',
-      icon: <Landmark size={32} />,
-      title: 'Birleşme & Devralmalar',
-      shortDesc: 'M&A süreçleri, hukuki durum tespiti (Due Diligence), ortak girişimler ve yapılandırma projeleri.',
-      detailedDesc: 'Şirket evlilikleri, devralmalar ve ortak girişim projelerinde stratejik danışmanlık hizmeti sunuyoruz. Due Diligence (hukuki durum tespiti) raporlarının hazırlanmasından, pay devir sözleşmelerinin (SPA) ve hissedarlar sözleşmelerinin (SHA) müzakeresine kadar tüm süreçlerde müvekkillerimizi en yüksek standartta temsil ediyoruz.',
+      id: 'criminal',
+      icon: <ScrollText size={32} />,
+      title: 'Ceza Hukuku',
+      shortDesc: 'Şüpheli, sanık ve mağdur haklarının soruşturma ve kovuşturma süreçlerinde korunması, ceza davalarında etkin savunma.',
+      detailedDesc: 'Suç teşkil eden eylemlerin soruşturma, kovuşturma ve infaz aşamalarında müvekkillerimize kapsamlı ceza hukuku danışmanlığı sunuyoruz. Şirket ve şahısların karşı karşıya kaldığı her türlü ceza davasında, hukukun üstünlüğü ilkesinden ayrılmadan, müvekkillerimizin haklarını en güçlü şekilde savunuyoruz. Ceza soruşturmalarında müdafiilik, adli süreçlerin her aşamasında şeffaf iletişim ve etkin temsil ile müvekkillerimizi güvence altına alıyoruz.',
       subServices: [
-        'Hukuki Durum Tespiti (Due Diligence) Süreçleri',
-        'Pay Devir (SPA) ve Hissedarlar Sözleşmesi (SHA) Hazırlığı',
-        'Ortak Girişim (Joint Venture) Kurulumu',
-        'Regülasyon ve İzin Başvurularının Yönetimi',
-        'Yeniden Yapılandırma ve Kısmi Bölünme Süreçleri'
+        'Ceza Soruşturmalarında Müdafiilik',
+        'Şüpheli ve Sanık Haklarının Korunması',
+        'Adli Süreçlerde Mağdur ve Katılan Temsili',
+        'Ceza Davalarında Savunma ve Temyiz Süreçleri',
+        'İnfaz Hukuku Danışmanlığı'
       ]
     },
     {
@@ -86,20 +86,19 @@ export const Practices: React.FC = () => {
         'Gayrimenkul Yatırımları Hukuki Durum Tespiti'
       ]
     },
+
     {
-      id: 'privacy',
-      icon: <Cpu size={32} />,
-      title: 'Teknoloji, Bilişim & KVKK',
-      shortDesc: 'Kişisel verilerin korunması uyum projeleri, yazılım lisanslamaları ve e-ticaret regülasyonları.',
-      detailedDesc: 'Dijitalleşen dünyada şirketlerin KVKK ve GDPR uyum süreçlerini uçtan uca tasarlıyoruz. Teknoloji transferleri, yazılım geliştirme ve lisans sözleşmeleri, e-ticaret mevzuatına uyum ve bilişim suçları alanlarında uzman danışmanlık sunmaktayız.',
+      id: 'ma',
+      icon: <Landmark size={32} />,
+      title: 'İcra Hukuku',
+      shortDesc: 'Alacak tahsili, icra takibi, borç yapılandırma ve iflas süreçlerinde hukuki danışmanlık.',
+      detailedDesc: 'Alacakların tahsili sürecinde, ticari ve bireysel icra takibi hizmetleri sunuyoruz. İflas ve konkordato davalarında müvekkillerimize destek oluyor, borç yapılandırma müzakereleri yürütüyoruz. İcra hukuku alanında, vekaletname ile her türlü icra işlemini titizlikle yerine getiriyoruz.',
       subServices: [
-        'KVKK (Kişisel Verilerin Korunması) Uyum Projeleri',
-        'Veri Envanteri Hazırlama ve VERBİS Kayıt İşlemleri',
-        'Yazılım Lisans ve Hizmet (SaaS) Sözleşmeleri Müzakeresi',
-        'E-Ticaret Altyapısı Hukuki Uyumluluk İncelemesi',
-        'Bilişim Hukuku ve Siber Güvenlik Regülasyonları'
+        'Alacakların Tahsili',
+        'İflas ve Konkordato Davaları',
+        'Borç Yapılandırma ve Müzakereleri'
       ]
-    }
+    },
   ];
 
   const handleClose = () => {
@@ -109,7 +108,7 @@ export const Practices: React.FC = () => {
   return (
     <section id="practices" className="section practices-section">
       <div className="container">
-        
+
         {/* Section Header */}
         <div className="section-header reveal">
           <span className="section-subtitle">Uzmanlık Alanlarımız</span>
@@ -119,9 +118,9 @@ export const Practices: React.FC = () => {
         {/* Practice Cards Grid */}
         <div className="practices-grid">
           {practiceAreas.map((area, idx) => (
-            <div 
-              key={area.id} 
-              className="practice-card reveal" 
+            <div
+              key={area.id}
+              className="practice-card reveal"
               style={{ animationDelay: `${idx * 0.1}s` }}
               onClick={() => setActiveArea(area)}
             >
@@ -144,7 +143,7 @@ export const Practices: React.FC = () => {
               <button className="practice-modal-close" onClick={handleClose} aria-label="Kapat">
                 <X size={24} />
               </button>
-              
+
               <div className="practice-modal-header">
                 <div className="practice-modal-icon">
                   {activeArea.icon}
@@ -169,8 +168,8 @@ export const Practices: React.FC = () => {
               </div>
 
               <div className="practice-modal-footer">
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
                     handleClose();
@@ -183,7 +182,7 @@ export const Practices: React.FC = () => {
                       const offsetPosition = elementPosition - offset;
                       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     }
-                  }} 
+                  }}
                   className="btn-gold-solid modal-cta"
                 >
                   Bu Alanda Danışmanlık Al
