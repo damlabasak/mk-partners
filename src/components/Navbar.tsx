@@ -2,23 +2,26 @@
 
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Globe } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { Language } from '../i18n/translations';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
+  const { language, setLanguage, t } = useLanguage();
+
   const navLinks = [
-    { label: 'Ana Sayfa', href: '#hero', id: 'hero' },
-    { label: 'Hakkımızda', href: '#about', id: 'about' },
-    { label: 'Faaliyet Alanları', href: '#practices', id: 'practices' },
-    { label: 'Ekibimiz', href: '#team', id: 'team' },
-    { label: 'İletişim', href: '#contact', id: 'contact' },
-    { label: 'Kariyer', href: '#career', id: 'career' },
+    { label: t.nav.home, href: '#hero', id: 'hero' },
+    { label: t.nav.about, href: '#about', id: 'about' },
+    { label: t.nav.practices, href: '#practices', id: 'practices' },
+    { label: t.nav.team, href: '#team', id: 'team' },
+    { label: t.nav.contact, href: '#contact', id: 'contact' },
+    { label: t.nav.career, href: '#career', id: 'career' },
   ];
 
-  // Track scroll position for header visual effect
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -27,7 +30,6 @@ export const Navbar: React.FC = () => {
         setScrolled(false);
       }
 
-      // Determine active section based on scroll position
       const scrollPosition = window.scrollY + 120;
       for (const link of navLinks) {
         const el = document.getElementById(link.id);
@@ -52,7 +54,7 @@ export const Navbar: React.FC = () => {
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
-      const offset = 80; // Navbar height
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -64,6 +66,12 @@ export const Navbar: React.FC = () => {
       });
     }
   };
+
+  const languagesList: { code: Language; label: string }[] = [
+    { code: 'tr', label: 'TR' },
+    { code: 'en', label: 'EN' },
+    { code: 'it', label: 'IT' },
+  ];
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
@@ -87,12 +95,32 @@ export const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {/* Right side contact CTA */}
-        <div className="navbar-cta">
-          <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="btn-navbar btn-gold">
-            <Phone size={14} className="icon-phone" />
-            <span>Danışmanlık Al</span>
-          </a>
+        {/* Right side CTA & Language Selector */}
+        <div className="navbar-right-box">
+
+          {/* Language Switcher Pill */}
+          <div className="lang-switcher">
+            <Globe size={14} className="lang-globe-icon" />
+            {languagesList.map((langItem) => (
+              <button
+                key={langItem.code}
+                onClick={() => setLanguage(langItem.code)}
+                className={`lang-btn ${language === langItem.code ? 'active' : ''}`}
+                aria-label={`Switch to ${langItem.label}`}
+              >
+                {langItem.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Contact CTA */}
+          <div className="navbar-cta">
+            <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="btn-navbar btn-gold">
+              <Phone size={14} className="icon-phone" />
+              <span>{t.nav.getAdvice}</span>
+            </a>
+          </div>
+
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -118,12 +146,29 @@ export const Navbar: React.FC = () => {
               {link.label}
             </a>
           ))}
+
+          {/* Mobile Language Switcher */}
+          <div className="mobile-lang-switcher">
+            {languagesList.map((langItem) => (
+              <button
+                key={langItem.code}
+                onClick={() => {
+                  setLanguage(langItem.code);
+                  setIsOpen(false);
+                }}
+                className={`mobile-lang-btn ${language === langItem.code ? 'active' : ''}`}
+              >
+                {langItem.label}
+              </button>
+            ))}
+          </div>
+
           <a
             href="#contact"
             onClick={(e) => handleLinkClick(e, '#contact')}
             className="mobile-drawer-cta btn-gold-solid"
           >
-            Danışmanlık Al
+            {t.nav.getAdvice}
           </a>
         </div>
       </div>

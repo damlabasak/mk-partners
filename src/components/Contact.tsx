@@ -3,8 +3,11 @@
 import React, { useState } from 'react';
 import { Phone, Mail, Send, MessageCircle, CheckCircle2, X } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Contact: React.FC = () => {
+  const { t } = useLanguage();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,7 +29,6 @@ export const Contact: React.FC = () => {
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    // Allow only digits (0-9), spaces, and the plus (+) symbol. Filter out letters/characters.
     const cleanedValue = value.replace(/[^0-9\s\+]/g, '');
     setFormData(prev => ({ ...prev, phone: cleanedValue }));
   };
@@ -40,60 +42,41 @@ export const Contact: React.FC = () => {
     e.preventDefault();
     setErrorMsg('');
 
-    // Robust validations
     const nameTrimmed = formData.name.trim();
-    if (!nameTrimmed) {
-      return setErrorMsg('Lütfen adınızı ve soyadınızı girin.');
-    }
-    const nameParts = nameTrimmed.split(/\s+/);
-    if (nameParts.length < 2) {
-      return setErrorMsg('Lütfen hem adınızı hem de soyadınızı girin.');
-    }
-    const nameRegex = /^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]{3,}$/;
-    if (!nameRegex.test(nameTrimmed)) {
-      return setErrorMsg('Ad ve soyad sadece harflerden oluşmalı ve en az 3 karakter olmalıdır.');
+    if (!nameTrimmed || nameTrimmed.split(/\s+/).length < 2) {
+      return setErrorMsg('Lütfen geçerli ad ve soyad girin.');
     }
 
     const emailTrimmed = formData.email.trim();
-    if (!emailTrimmed) {
-      return setErrorMsg('Lütfen e-posta adresinizi girin.');
-    }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(emailTrimmed)) {
-      return setErrorMsg('Lütfen geçerli bir e-posta adresi girin (örn: isim@mail.com).');
+    if (!emailTrimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailTrimmed)) {
+      return setErrorMsg('Lütfen geçerli bir e-posta adresi girin.');
     }
 
     const phoneTrimmed = formData.phone.trim();
     if (phoneTrimmed) {
       const cleanPhone = phoneTrimmed.replace(/\s+/g, '').replace(/[\(\)\-\+]/g, '');
-      const phoneRegex = /^(90)?5\d{9}$|^05\d{9}$|^5\d{9}$/;
-      if (!phoneRegex.test(cleanPhone)) {
-        return setErrorMsg('Lütfen geçerli bir telefon numarası girin (örn: 0555 555 55 55).');
+      if (!/^(90)?5\d{9}$|^05\d{9}$|^5\d{9}$/.test(cleanPhone)) {
+        return setErrorMsg('Lütfen geçerli bir telefon numarası girin.');
       }
     }
 
     const messageTrimmed = formData.message.trim();
-    if (!messageTrimmed) {
-      return setErrorMsg('Lütfen mesajınızı yazın.');
-    }
-    if (messageTrimmed.length < 10) {
-      return setErrorMsg('Lütfen sorununuzu açıklayan daha detaylı bir mesaj yazın (en az 10 karakter).');
+    if (!messageTrimmed || messageTrimmed.length < 10) {
+      return setErrorMsg('Lütfen daha detaylı bir mesaj yazın (en az 10 karakter).');
     }
 
     if (!formData.kvkkConsent) {
-      return setErrorMsg('Devam etmek için KVKK Aydınlatma Metni onay kutusunu işaretlemeniz gerekmektedir.');
+      return setErrorMsg('Lütfen onay kutusunu işaretleyin.');
     }
 
     setIsSubmitting(true);
 
-    // Retrieve EmailJS configuration from environment variables
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-    // If variables are missing, fallback to simulated success for smooth local testing
     if (!serviceId || !templateId || !publicKey) {
-      console.warn('EmailJS keys are missing from environment. Falling back to local simulation.');
+      console.warn('EmailJS keys missing. Simulating success.');
       setTimeout(() => {
         setIsSubmitting(false);
         setIsSuccess(true);
@@ -133,7 +116,7 @@ export const Contact: React.FC = () => {
       .catch((error) => {
         console.error('EmailJS Error:', error);
         setIsSubmitting(false);
-        setErrorMsg('Mesajınız gönderilirken teknik bir sorun oluştu. Lütfen daha sonra tekrar deneyin.');
+        setErrorMsg('Mesajınız gönderilirken bir sorun oluştu.');
       });
   };
 
@@ -143,17 +126,17 @@ export const Contact: React.FC = () => {
 
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="section-subtitle">Bize Ulaşın</span>
-          <h2 className="section-title">İletişim</h2>
+          <span className="section-subtitle">{t.contact.subtitle}</span>
+          <h2 className="section-title">{t.contact.title}</h2>
         </div>
 
         <div className="contact-grid">
 
           {/* Left Column: Info */}
           <div className="contact-info reveal">
-            <h3 className="contact-info-title">İrtibat Bilgilerimiz</h3>
+            <h3 className="contact-info-title">{t.contact.infoTitle}</h3>
             <p className="contact-info-desc">
-              Hukuki sorunlarınız veya danışmanlık ihtiyaçlarınız için bizimle doğrudan iletişime geçebilir ya da formu doldurarak randevu talep edebilirsiniz.
+              {t.contact.infoDesc}
             </p>
 
             <div className="info-items">
@@ -162,7 +145,7 @@ export const Contact: React.FC = () => {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <h4>Telefon</h4>
+                  <h4>{t.contact.phoneTitle}</h4>
                   <a href="tel:+905054296196">+90 (505) 429 61 96</a>
                 </div>
               </div>
@@ -172,7 +155,7 @@ export const Contact: React.FC = () => {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <h4>E-posta</h4>
+                  <h4>{t.contact.emailTitle}</h4>
                   <a href="mailto:info@meteoglukaya.com">info@meteoglukaya.com</a>
                 </div>
               </div>
@@ -186,7 +169,7 @@ export const Contact: React.FC = () => {
               className="whatsapp-btn btn-gold"
             >
               <MessageCircle size={18} />
-              <span>WhatsApp ile Hızlı Mesaj</span>
+              <span>{t.contact.whatsappBtn}</span>
             </a>
           </div>
 
@@ -195,25 +178,25 @@ export const Contact: React.FC = () => {
             {isSuccess ? (
               <div className="success-card">
                 <CheckCircle2 size={54} className="success-icon" />
-                <h3 className="success-title">Mesajınız Alındı</h3>
+                <h3 className="success-title">{t.contact.successTitle}</h3>
                 <p className="success-desc">
-                  Bizimle iletişime geçtiğiniz için teşekkür ederiz. Talebiniz avukatlarımıza iletilmiş olup, en kısa sürede tarafınıza dönüş sağlanacaktır.
+                  {t.contact.successDesc}
                 </p>
                 <button
                   onClick={() => setIsSuccess(false)}
                   className="btn-gold-solid"
                 >
-                  Yeni Mesaj Gönder
+                  {t.contact.newMessageBtn}
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="contact-form">
-                <h3 className="form-title">Randevu & Bilgi Formu</h3>
+                <h3 className="form-title">{t.contact.formTitle}</h3>
 
                 {errorMsg && <div className="form-error">{errorMsg}</div>}
 
                 <div className="form-group">
-                  <label htmlFor="name" className="form-label">Ad Soyad *</label>
+                  <label htmlFor="name" className="form-label">{t.contact.fullNameLabel}</label>
                   <input
                     type="text"
                     id="name"
@@ -221,14 +204,14 @@ export const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="form-control"
-                    placeholder="Lütfen adınızı ve soyadınızı girin"
+                    placeholder={t.contact.fullNamePlaceholder}
                     required
                   />
                 </div>
 
                 <div className="form-grid">
                   <div className="form-group">
-                    <label htmlFor="email" className="form-label">E-posta *</label>
+                    <label htmlFor="email" className="form-label">{t.contact.emailLabel}</label>
                     <input
                       type="email"
                       id="email"
@@ -236,13 +219,13 @@ export const Contact: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className="form-control"
-                      placeholder="e.g. adiniz@mail.com"
+                      placeholder={t.contact.emailPlaceholder}
                       required
                     />
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="phone" className="form-label">Telefon Numarası</label>
+                    <label htmlFor="phone" className="form-label">{t.contact.phoneLabel}</label>
                     <input
                       type="tel"
                       id="phone"
@@ -250,13 +233,13 @@ export const Contact: React.FC = () => {
                       value={formData.phone}
                       onChange={handlePhoneChange}
                       className="form-control"
-                      placeholder="e.g. 0555 555 55 55"
+                      placeholder={t.contact.phonePlaceholder}
                     />
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="subject" className="form-label">Konu Alanı</label>
+                  <label htmlFor="subject" className="form-label">{t.contact.subjectLabel}</label>
                   <select
                     id="subject"
                     name="subject"
@@ -264,24 +247,24 @@ export const Contact: React.FC = () => {
                     onChange={handleChange}
                     className="form-control select-control"
                   >
-                    <option value="genel">Genel Sorular & Randevu</option>
-                    <option value="sirketler">Şirketler & Ticaret Hukuku</option>
-                    <option value="ma">Birleşme & Devralmalar (M&A)</option>
-                    <option value="dava">Uyuşmazlık Çözümü & Dava</option>
-                    <option value="is">İş Hukuku Danışmanlığı</option>
-                    <option value="kvkk">KVKK & Bilişim Hukuku</option>
+                    <option value="genel">{t.contact.subjectOptions.general}</option>
+                    <option value="sirketler">{t.contact.subjectOptions.corporate}</option>
+                    <option value="ma">{t.contact.subjectOptions.ma}</option>
+                    <option value="dava">{t.contact.subjectOptions.litigation}</option>
+                    <option value="is">{t.contact.subjectOptions.employment}</option>
+                    <option value="kvkk">{t.contact.subjectOptions.kvkk}</option>
                   </select>
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="message" className="form-label">Mesajınız *</label>
+                  <label htmlFor="message" className="form-label">{t.contact.messageLabel}</label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     className="form-control"
-                    placeholder="Hukuki konuya ilişkin özet mesajınızı buraya yazın..."
+                    placeholder={t.contact.messagePlaceholder}
                     required
                   ></textarea>
                 </div>
@@ -298,15 +281,15 @@ export const Contact: React.FC = () => {
                     required
                   />
                   <label htmlFor="kvkkConsent" className="kvkk-label">
-                    <span>MK Partners ile paylaştığım kişisel verilerimin, </span>
+                    <span>{t.contact.kvkkPrefix}</span>
                     <button
                       type="button"
                       onClick={() => setShowKvkkModal(true)}
                       className="kvkk-link-btn"
                     >
-                      KVKK Aydınlatma Metni
+                      {t.contact.kvkkBtnText}
                     </button>
-                    <span> kapsamında işlenmesini ve benimle iletişime geçilmesini kabul ediyorum. *</span>
+                    <span>{t.contact.kvkkSuffix}</span>
                   </label>
                 </div>
 
@@ -316,11 +299,11 @@ export const Contact: React.FC = () => {
                   className="btn-gold-solid form-submit-btn"
                 >
                   {isSubmitting ? (
-                    <span>Gönderiliyor...</span>
+                    <span>{t.contact.submittingBtn}</span>
                   ) : (
                     <>
                       <Send size={16} className="btn-icon" />
-                      <span>Talep Gönder</span>
+                      <span>{t.contact.submitBtn}</span>
                     </>
                   )}
                 </button>
@@ -346,13 +329,13 @@ export const Contact: React.FC = () => {
             </button>
 
             <div className="kvkk-modal-content">
-              <h3 className="kvkk-modal-title">Kişisel Verilerin Korunması Kanunu (KVKK) Aydınlatma Metni</h3>
+              <h3 className="kvkk-modal-title">{t.contact.kvkkModalTitle}</h3>
 
               <div className="kvkk-text-body">
-                <p><strong>Veri Sorumlusu:</strong> MK Partners Hukuki Danışmanlık</p>
+                <p><strong>Veri Sorumlusu / Data Controller:</strong> MK Partners Hukuki Danışmanlık</p>
 
                 <p>
-                  MK Partners Hukuki Danışmanlık (“Firmamız”) olarak, müvekkillerimizin ve sitemizi ziyaret eden kullanıcılarımızın kişisel verilerinin korunmasına büyük önem veriyoruz. 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca veri sorumlusu sıfatıyla, sitemizde yer alan İletişim Formu aracılığıyla topladığımız verileriniz hakkında sizleri bilgilendirmek isteriz.
+                  MK Partners Hukuki Danışmanlık (“Firmamız”) olarak, müvekkillerimizin ve sitemizi ziyaret eden kullanıcılarımızın kişisel verilerinin korunmasına büyük önem veriyoruz. 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) ve GDPR uyarınca veri sorumlusu sıfatıyla, sitemizde yer alan İletişim Formu aracılığıyla topladığımız verileriniz hakkında sizleri bilgilendirmek isteriz.
                 </p>
 
                 <h4>1. İşlenen Kişisel Verileriniz</h4>
@@ -363,19 +346,9 @@ export const Contact: React.FC = () => {
                   Kişisel verileriniz; randevu taleplerinizin yönetilmesi, bizimle iletişime geçme nedeninize bağlı olarak gerekli hukuki ön değerlendirmelerin yapılması, tarafınıza geri dönüş sağlanması ve danışmanlık hizmetlerinin planlanması amaçlarıyla sınırlı olarak işlenmektedir.
                 </p>
 
-                <h4>3. Kişisel Verilerin Aktarılması</h4>
+                <h4>3. Haklarınız</h4>
                 <p>
-                  Toplanan kişisel verileriniz, yasal yükümlülüklerimizi yerine getirmek amacıyla resmi kurumlardan gelecek yasal talepler hariç olmak üzere, üçüncü kişilerle veya yurtdışıyla kesinlikle paylaşılmamaktadır.
-                </p>
-
-                <h4>4. Toplama Yöntemi ve Hukuki Sebebi</h4>
-                <p>
-                  Kişisel verileriniz, sitemizdeki formu elektronik ortamda doldurmanız suretiyle toplanmaktadır. Bu veriler, KVKK Madde 5/1 uyarınca İletişim Formu altındaki onay kutusunu işaretleyerek vereceğiniz “Açık Rıza” hukuki sebebine dayalı olarak işlenmektedir.
-                </p>
-
-                <h4>5. Kanun Kapsamındaki Haklarınız</h4>
-                <p>
-                  KVKK’nın 11. maddesi kapsamında; verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, eksik veya yanlış işlenmişse düzeltilmesini isteme ve verilerinizin silinmesini talep etme haklarına sahipsiniz. Haklarınızı kullanmak için <strong>info@meteoglukaya.com</strong> adresine yazılı talepte bulunabilirsiniz.
+                  Verilerinizin silinmesini, güncellenmesini veya işlenme durumunu öğrenmeyi <strong>info@meteoglukaya.com</strong> adresinden talep edebilirsiniz.
                 </p>
               </div>
             </div>

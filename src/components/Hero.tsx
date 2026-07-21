@@ -2,8 +2,11 @@
 
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Hero: React.FC = () => {
+  const { t } = useLanguage();
+
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -31,15 +34,15 @@ export const Hero: React.FC = () => {
       {/* Floating Glassmorphic Content Panel on the Left */}
       <div className="hero-glass-panel reveal">
         <div className="hero-left-content">
-          <span className="hero-subtitle">MK Partners Legal Consultancy</span>
+          <span className="hero-subtitle">{t.hero.subtitle}</span>
 
           <h1 className="hero-title">
-            Stratejik Hukuk <br />
-            <span className="gold-text">Kalıcı Güven</span>
+            {t.hero.titleLine1} <br />
+            <span className="gold-text">{t.hero.titleGold}</span>
           </h1>
 
           <p className="hero-description">
-            MK Partners olarak Türkiye ve Avrupa’da kişi ve şirketlere dava takibi, uyuşmazlık çözümü ve hukuki danışmanlık alanlarında yüksek standartlarda hizmet sunuyoruz.
+            {t.hero.description}
           </p>
 
           <div className="hero-buttons">
@@ -47,13 +50,13 @@ export const Hero: React.FC = () => {
               onClick={() => handleScrollTo('practices')}
               className="btn-gold-solid"
             >
-              Faaliyet Alanlarımız
+              {t.hero.practicesBtn}
             </button>
             <button
               onClick={() => handleScrollTo('contact')}
               className="btn-gold"
             >
-              Bize Ulaşın
+              {t.hero.contactBtn}
             </button>
           </div>
         </div>
@@ -65,7 +68,7 @@ export const Hero: React.FC = () => {
         onClick={() => handleScrollTo('about')}
         aria-label="Aşağı kaydır"
       >
-        <span className="scroll-text">Keşfet</span>
+        <span className="scroll-text">{t.hero.discover}</span>
         <ChevronDown size={20} className="scroll-arrow" />
       </button>
     </section>

@@ -1,10 +1,13 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { Briefcase, UploadCloud, FileText, CheckCircle2, X, Award, Users, ShieldCheck, Check } from 'lucide-react';
+import { Briefcase, UploadCloud, FileText, CheckCircle2, X, Award, Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Career: React.FC = () => {
+  const { t } = useLanguage();
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -43,7 +46,6 @@ export const Career: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: checked }));
   };
 
-  /* File Selection & Drag-and-Drop Handlers */
   const validateAndSetFile = (file: File) => {
     setErrorMsg('');
     const allowedExtensions = ['pdf', 'doc', 'docx'];
@@ -102,17 +104,13 @@ export const Career: React.FC = () => {
     return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
   };
 
-  /* Form Submission Handler */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg('');
 
     const nameTrimmed = formData.fullName.trim();
-    if (!nameTrimmed) {
-      return setErrorMsg('Lütfen adınızı ve soyadınızı girin.');
-    }
-    if (nameTrimmed.split(/\s+/).length < 2) {
-      return setErrorMsg('Lütfen hem adınızı hem de soyadınızı tam girin.');
+    if (!nameTrimmed || nameTrimmed.split(/\s+/).length < 2) {
+      return setErrorMsg('Lütfen adınızı ve soyadınızı tam girin.');
     }
 
     const emailTrimmed = formData.email.trim();
@@ -120,20 +118,12 @@ export const Career: React.FC = () => {
       return setErrorMsg('Lütfen geçerli bir e-posta adresi girin.');
     }
 
-    const phoneTrimmed = formData.phone.trim();
-    if (phoneTrimmed) {
-      const cleanPhone = phoneTrimmed.replace(/\s+/g, '').replace(/[\(\)\-\+]/g, '');
-      if (!/^(90)?5\d{9}$|^05\d{9}$|^5\d{9}$/.test(cleanPhone)) {
-        return setErrorMsg('Lütfen geçerli bir telefon numarası girin.');
-      }
-    }
-
     if (!selectedFile) {
       return setErrorMsg('Lütfen özgeçmişinizi (CV) dosya alanından yükleyin.');
     }
 
     if (!formData.kvkkConsent) {
-      return setErrorMsg('Devam etmek için KVKK Aydınlatma Metni onay kutusunu işaretlemeniz gerekmektedir.');
+      return setErrorMsg('Lütfen onay kutusunu işaretleyin.');
     }
 
     setIsSubmitting(true);
@@ -143,7 +133,7 @@ export const Career: React.FC = () => {
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
-      console.warn('EmailJS keys are missing from environment. Simulating CV submission.');
+      console.warn('EmailJS keys missing. Simulating CV submission.');
       setTimeout(() => {
         setIsSubmitting(false);
         setIsSuccess(true);
@@ -191,7 +181,7 @@ export const Career: React.FC = () => {
       .catch((err) => {
         console.error('CV Submission Error:', err);
         setIsSubmitting(false);
-        setErrorMsg('Başvurunuz iletilirken teknik bir sorun oluştu. Lütfen daha sonra tekrar deneyin.');
+        setErrorMsg('Başvurunuz iletilirken teknik bir sorun oluştu.');
       });
   };
 
@@ -201,17 +191,17 @@ export const Career: React.FC = () => {
 
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="section-subtitle">Kariyer Fırsatları</span>
-          <h2 className="section-title">Büyüyen Ekibimize Katılın</h2>
+          <span className="section-subtitle">{t.career.subtitle}</span>
+          <h2 className="section-title">{t.career.title}</h2>
         </div>
 
         <div className="career-grid">
 
           {/* Left Column: Intro & Open Positions */}
           <div className="career-info reveal">
-            <h3 className="career-info-title">Geleceğin Hukukunu Birlikte Şekillendirelim</h3>
+            <h3 className="career-info-title">{t.career.infoTitle}</h3>
             <p className="career-info-desc">
-              MK Partners olarak, dinamik, analitik düşünen ve sürekli gelişime inanan meslektaşlarımıza kapılarımızı açıyoruz. İstanbul ve Roma ekseninde yerli ve uluslararası müvekkillerimize sunduğumuz yüksek standartlı hukuki danışmanlık süreçlerinde aktif rol alacak Stajyer Avukat ve Avukat arkadaşları ekibimizde görmekten mutluluk duyuyoruz.
+              {t.career.infoDesc}
             </p>
 
             {/* Position Cards */}
@@ -220,18 +210,18 @@ export const Career: React.FC = () => {
               {/* Stajyer Avukat Card */}
               <div className="career-card">
                 <div className="career-card-header">
-                  <h4 className="career-card-title">Stajyer Avukat</h4>
-                  <span className="career-badge">Yasal Staj</span>
+                  <h4 className="career-card-title">{t.career.positions.internTitle}</h4>
+                  <span className="career-badge">{t.career.positions.internBadge}</span>
                 </div>
                 <p className="career-card-desc">
-                  Yoğun hukuki araştırma, dava dilekçeleri hazırlığı, duruşma süreçlerinin takibi ve müvekkil toplantılarına doğrudan katılım fırsatı sunan nitelikli bir mentörlük programı.
+                  {t.career.positions.internDesc}
                 </p>
                 <div className="career-card-features">
                   <span className="career-feature-item">
-                    <Check size={16} className="career-feature-icon" /> Stratejik Dava ve İcra Süreçleri
+                    <Check size={16} className="career-feature-icon" /> {t.career.positions.internFeature1}
                   </span>
                   <span className="career-feature-item">
-                    <Check size={16} className="career-feature-icon" /> Yabancı Dil ve Makale Çalışmaları
+                    <Check size={16} className="career-feature-icon" /> {t.career.positions.internFeature2}
                   </span>
                 </div>
               </div>
@@ -239,18 +229,18 @@ export const Career: React.FC = () => {
               {/* Avukat Card */}
               <div className="career-card">
                 <div className="career-card-header">
-                  <h4 className="career-card-title">Avukat / Kıdemli Avukat</h4>
-                  <span className="career-badge">Ruhsatlı</span>
+                  <h4 className="career-card-title">{t.career.positions.lawyerTitle}</h4>
+                  <span className="career-badge">{t.career.positions.lawyerBadge}</span>
                 </div>
                 <p className="career-card-desc">
-                  Ticaret, İş, Şirketler Hukuku, M&A ve Uyuşmazlık Çözümü alanlarında bağımsız sorumluluk üstlenecek, müvekkil ilişkilerini yönetecek deneyimli ekip arkadaşları.
+                  {t.career.positions.lawyerDesc}
                 </p>
                 <div className="career-card-features">
                   <span className="career-feature-item">
-                    <Check size={16} className="career-feature-icon" /> Sözleşme ve Proje Yönetimi
+                    <Check size={16} className="career-feature-icon" /> {t.career.positions.lawyerFeature1}
                   </span>
                   <span className="career-feature-item">
-                    <Check size={16} className="career-feature-icon" /> Uluslararası Müvekkil Portföyü
+                    <Check size={16} className="career-feature-icon" /> {t.career.positions.lawyerFeature2}
                   </span>
                 </div>
               </div>
@@ -258,11 +248,11 @@ export const Career: React.FC = () => {
               {/* Yaz Stajyeri Card */}
               <div className="career-card">
                 <div className="career-card-header">
-                  <h4 className="career-card-title">Yaz Stajyeri (Öğrenci)</h4>
-                  <span className="career-badge">Yaz Dönemi</span>
+                  <h4 className="career-card-title">{t.career.positions.summerTitle}</h4>
+                  <span className="career-badge">{t.career.positions.summerBadge}</span>
                 </div>
                 <p className="career-card-desc">
-                  Hukuk fakültesi 3. veya 4. sınıf öğrencilerine yönelik, büro pratiklerini ve kurumsal hukuk danışmanlığını yakından tanıma imkanı.
+                  {t.career.positions.summerDesc}
                 </p>
               </div>
 
@@ -271,10 +261,10 @@ export const Career: React.FC = () => {
             {/* Values / Culture Box */}
             <div className="career-culture-box">
               <h4 className="career-culture-title">
-                <Award size={18} /> Ne Arıyoruz?
+                <Award size={18} /> {t.career.cultureTitle}
               </h4>
               <p className="career-culture-text">
-                Yüksek sorumluluk bilinci, güçlü araştırma yeteneği, akıcı İngilizce (veya ek yabancı dil) bilgisi ve dinamik ekip çalışmasına uyum sağlama arzusu temel kriterlerimizdir.
+                {t.career.cultureText}
               </p>
             </div>
 
@@ -285,29 +275,29 @@ export const Career: React.FC = () => {
             {isSuccess ? (
               <div className="success-card">
                 <CheckCircle2 size={54} className="success-icon" />
-                <h3 className="success-title">Başvurunuz Alındı</h3>
+                <h3 className="success-title">{t.career.successTitle}</h3>
                 <p className="success-desc">
-                  Özgeçmişiniz insan kaynakları ekibimize iletilmiştir. Pozisyon gereksinimlerine uygunluk durumunda sizinle en kısa sürede iletişime geçilecektir.
+                  {t.career.successDesc}
                 </p>
                 <button
                   onClick={() => setIsSuccess(false)}
                   className="btn-gold-solid"
                 >
-                  Yeni Başvuru Gönder
+                  {t.career.newAppBtn}
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="career-form">
-                <h3 className="career-form-title">CV Başvuru Formu</h3>
+                <h3 className="career-form-title">{t.career.formTitle}</h3>
                 <p className="career-form-subtitle">
-                  Aşağıdaki formu doldurarak güncel özgeçmişinizi (CV) tarafımıza iletebilirsiniz.
+                  {t.career.formSubtitle}
                 </p>
 
                 {errorMsg && <div className="form-error">{errorMsg}</div>}
 
                 {/* Name */}
                 <div className="form-group">
-                  <label htmlFor="fullName" className="form-label">Ad Soyad *</label>
+                  <label htmlFor="fullName" className="form-label">{t.career.fullNameLabel}</label>
                   <input
                     type="text"
                     id="fullName"
@@ -315,7 +305,7 @@ export const Career: React.FC = () => {
                     value={formData.fullName}
                     onChange={handleChange}
                     className="form-control"
-                    placeholder="Adınız ve soyadınız"
+                    placeholder={t.career.fullNamePlaceholder}
                     required
                   />
                 </div>
@@ -323,7 +313,7 @@ export const Career: React.FC = () => {
                 {/* Email & Phone Grid */}
                 <div className="form-grid">
                   <div className="form-group">
-                    <label htmlFor="careerEmail" className="form-label">E-posta *</label>
+                    <label htmlFor="careerEmail" className="form-label">{t.career.emailLabel}</label>
                     <input
                       type="email"
                       id="careerEmail"
@@ -331,13 +321,13 @@ export const Career: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className="form-control"
-                      placeholder="adiniz@email.com"
+                      placeholder={t.career.emailPlaceholder}
                       required
                     />
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="careerPhone" className="form-label">Telefon Numarası</label>
+                    <label htmlFor="careerPhone" className="form-label">{t.career.phoneLabel}</label>
                     <input
                       type="tel"
                       id="careerPhone"
@@ -345,7 +335,7 @@ export const Career: React.FC = () => {
                       value={formData.phone}
                       onChange={handlePhoneChange}
                       className="form-control"
-                      placeholder="0555 555 55 55"
+                      placeholder={t.career.phonePlaceholder}
                     />
                   </div>
                 </div>
@@ -353,7 +343,7 @@ export const Career: React.FC = () => {
                 {/* Position & Education Grid */}
                 <div className="form-grid">
                   <div className="form-group">
-                    <label htmlFor="position" className="form-label">Başvurulan Pozisyon *</label>
+                    <label htmlFor="position" className="form-label">{t.career.positionLabel}</label>
                     <select
                       id="position"
                       name="position"
@@ -361,15 +351,15 @@ export const Career: React.FC = () => {
                       onChange={handleChange}
                       className="form-control select-control"
                     >
-                      <option value="stajyer-avukat">Stajyer Avukat</option>
-                      <option value="avukat">Ruhsatlı Avukat / Kıdemli Avukat</option>
-                      <option value="yaz-stajyeri">Yaz Stajyeri (Öğrenci)</option>
-                      <option value="diger">Diğer / Destek Ekibi</option>
+                      <option value="stajyer-avukat">{t.career.positionOptions.intern}</option>
+                      <option value="avukat">{t.career.positionOptions.lawyer}</option>
+                      <option value="yaz-stajyeri">{t.career.positionOptions.summer}</option>
+                      <option value="diger">{t.career.positionOptions.other}</option>
                     </select>
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="education" className="form-label">Üniversite & Mezuniyet Yılı</label>
+                    <label htmlFor="education" className="form-label">{t.career.eduLabel}</label>
                     <input
                       type="text"
                       id="education"
@@ -377,14 +367,14 @@ export const Career: React.FC = () => {
                       value={formData.education}
                       onChange={handleChange}
                       className="form-control"
-                      placeholder="ör. İstanbul Üni. (2024)"
+                      placeholder={t.career.eduPlaceholder}
                     />
                   </div>
                 </div>
 
                 {/* Foreign Languages */}
                 <div className="form-group">
-                  <label htmlFor="languages" className="form-label">Yabancı Diller & Seviye</label>
+                  <label htmlFor="languages" className="form-label">{t.career.langLabel}</label>
                   <input
                     type="text"
                     id="languages"
@@ -392,13 +382,13 @@ export const Career: React.FC = () => {
                     value={formData.languages}
                     onChange={handleChange}
                     className="form-control"
-                    placeholder="ör. İngilizce (İleri / C1), İtalyanca (Orta)"
+                    placeholder={t.career.langPlaceholder}
                   />
                 </div>
 
                 {/* CV File Upload Dropzone */}
                 <div className="form-group file-upload-container">
-                  <label className="form-label">Özgeçmiş (CV) Yükle *</label>
+                  <label className="form-label">{t.career.cvLabel}</label>
 
                   {selectedFile ? (
                     <div className="file-selected-box">
@@ -435,16 +425,16 @@ export const Career: React.FC = () => {
                       />
                       <UploadCloud size={36} className="file-upload-icon" />
                       <p className="file-upload-text">
-                        <span>CV Dosyanızı Buraya Sürükleyin</span> ya da <strong>Gözatın</strong>
+                        <span>{t.career.cvDragText}</span> ya da <strong>{t.career.cvBrowseText}</strong>
                       </p>
-                      <p className="file-upload-hint">Desteklenen formatlar: PDF, DOC, DOCX (Maksimum 10 MB)</p>
+                      <p className="file-upload-hint">{t.career.cvHint}</p>
                     </div>
                   )}
                 </div>
 
                 {/* Cover Letter / Note */}
                 <div className="form-group">
-                  <label htmlFor="coverLetter" className="form-label">Ön Yazı / Not (Opsiyonel)</label>
+                  <label htmlFor="coverLetter" className="form-label">{t.career.coverLetterLabel}</label>
                   <textarea
                     id="coverLetter"
                     name="coverLetter"
@@ -452,7 +442,7 @@ export const Career: React.FC = () => {
                     onChange={handleChange}
                     className="form-control"
                     style={{ minHeight: '90px' }}
-                    placeholder="Kendinizi ve kariyer hedeflerinizi özetleyen kısa bir not ekleyebilirsiniz..."
+                    placeholder={t.career.coverLetterPlaceholder}
                   ></textarea>
                 </div>
 
@@ -468,15 +458,15 @@ export const Career: React.FC = () => {
                     required
                   />
                   <label htmlFor="careerKvkkConsent" className="kvkk-label">
-                    <span>MK Partners ile paylaştığım kişisel verilerimin ve özgeçmişimin, </span>
+                    <span>{t.career.kvkkPrefix}</span>
                     <button
                       type="button"
                       onClick={() => setShowKvkkModal(true)}
                       className="kvkk-link-btn"
                     >
-                      KVKK Aydınlatma Metni
+                      {t.career.kvkkBtnText}
                     </button>
-                    <span> kapsamında işe alım süreçlerinde değerlendirilmesini onaylıyorum. *</span>
+                    <span>{t.career.kvkkSuffix}</span>
                   </label>
                 </div>
 
@@ -487,11 +477,11 @@ export const Career: React.FC = () => {
                   className="btn-gold-solid form-submit-btn"
                 >
                   {isSubmitting ? (
-                    <span>İletiliyor...</span>
+                    <span>{t.career.submittingBtn}</span>
                   ) : (
                     <>
                       <Briefcase size={16} className="btn-icon" />
-                      <span>CV Gönder</span>
+                      <span>{t.career.submitBtn}</span>
                     </>
                   )}
                 </button>
@@ -518,12 +508,12 @@ export const Career: React.FC = () => {
             </button>
 
             <div className="kvkk-modal-content">
-              <h3 className="kvkk-modal-title">Kariyer Başvuruları KVKK Aydınlatma Metni</h3>
+              <h3 className="kvkk-modal-title">{t.career.kvkkModalTitle}</h3>
 
               <div className="kvkk-text-body">
-                <p><strong>Veri Sorumlusu:</strong> MK Partners Hukuki Danışmanlık</p>
+                <p><strong>Veri Sorumlusu / Data Controller:</strong> MK Partners Hukuki Danışmanlık</p>
                 <p>
-                  MK Partners Hukuki Danışmanlık olarak, iş başvurunuz kapsamında sunduğunuz özgeçmiş (CV), iletişim bilgileri ve diğer kişisel verilerinizin 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca korunması ve işlenmesi konusunda azami hassasiyeti gösteriyoruz.
+                  MK Partners Hukuki Danışmanlık olarak, iş başvurunuz kapsamında sunduğunuz özgeçmiş (CV), iletişim bilgileri ve diğer kişisel verilerinizin 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) ve GDPR uyarınca korunması ve işlenmesi konusunda azami hassasiyeti gösteriyoruz.
                 </p>
 
                 <h4>1. İşlenen Kişisel Veriler</h4>
@@ -533,17 +523,12 @@ export const Career: React.FC = () => {
 
                 <h4>2. Verilerin İşlenme Amacı</h4>
                 <p>
-                  Kişisel verileriniz; iş başvurunuzun değerlendirilmesi, yetkinliklerinizin açık olan pozisyonlarla eşleştirilmesi, işe alım mülakat süreçlerinin yürütülmesi ve gerektiğinde sizinle iletişime geçilmesi amaçlarıyla sınırlı olarak işlenmektedir.
+                  Kişisel verileriniz; iş başvurunuzun değerlendirilmesi, yetkinliklerinizin açık olan pozisyonlarla eşleştirilmesi ve işe alım süreçlerinin yürütülmesi amacıyla işlenmektedir.
                 </p>
 
-                <h4>3. Verilerin Saklanması ve Aktarımı</h4>
+                <h4>3. Haklarınız</h4>
                 <p>
-                  Paylaştığınız bilgiler doğrudan yetkili ortak avukatlarımız ve insan kaynakları ekibimiz tarafından değerlendirilir. Üçüncü şahıslara veya şirket dışı kurumlara kesinlikle aktarılmaz. Gelecekte açılabilecek pozisyonlarda değerlendirilmek üzere onayınız dahilinde makul bir süre saklanır.
-                </p>
-
-                <h4>4. Haklarınız</h4>
-                <p>
-                  KVKK Madde 11 uyarınca, verilerinizin silinmesini, güncellenmesini veya işlenme durumunu öğrenmeyi <strong>info@meteoglukaya.com</strong> adresinden talep edebilirsiniz.
+                  Verilerinizin silinmesini veya işlenme durumunu öğrenmeyi <strong>info@meteoglukaya.com</strong> adresinden talep edebilirsiniz.
                 </p>
               </div>
             </div>

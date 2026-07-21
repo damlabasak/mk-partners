@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Cinzel, Inter } from 'next/font/google';
+import { LanguageProvider } from '@/context/LanguageContext';
 import '@/index.css';
 import '@/styles/components/Navbar.css';
 import '@/styles/components/Hero.css';
@@ -144,7 +145,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }
