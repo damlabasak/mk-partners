@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import { Mail, GraduationCap, Globe, X } from 'lucide-react';
-const mkLogo = '/mk-logo.png';
+const basePath = process.env.NODE_ENV === 'production' ? '/mk-partners' : '';
+const mkLogo = `${basePath}/mk-logo.png`;
 
 interface TeamMember {
   name: string;

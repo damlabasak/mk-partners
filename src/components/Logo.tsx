@@ -1,5 +1,6 @@
 import React from 'react';
-const mkLogo = '/mk-logo.png';
+const basePath = process.env.NODE_ENV === 'production' ? '/mk-partners' : '';
+const mkLogo = `${basePath}/mk-logo.png`;
 
 interface LogoProps {
   variant?: 'full' | 'monogram' | 'horizontal';
