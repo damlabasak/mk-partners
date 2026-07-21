@@ -1,7 +1,8 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { Menu, X, Phone } from 'lucide-react';
-import '../styles/components/Navbar.css';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

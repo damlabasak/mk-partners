@@ -1,6 +1,5 @@
 import React from 'react';
 import { ShieldCheck, Scale, Award, Users } from 'lucide-react';
-import '../styles/components/About.css';
 
 export const About: React.FC = () => {
   const values = [

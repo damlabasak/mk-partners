@@ -1,6 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Briefcase, Landmark, ShieldAlert, FileText, Home, Cpu, X, CheckCircle } from 'lucide-react';
-import '../styles/components/Practices.css';
 
 interface PracticeArea {
   id: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import mkLogo from '../assets/mk-logo.png';
+const mkLogo = '/mk-logo.png';
 
 interface LogoProps {
   variant?: 'full' | 'monogram' | 'horizontal';

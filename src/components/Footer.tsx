@@ -1,7 +1,8 @@
+'use client';
+
 import React from 'react';
 import { Logo } from './Logo';
 import { Mail, ArrowUp } from 'lucide-react';
-import '../styles/components/Footer.css';
 
 export const Footer: React.FC = () => {
   const handleScrollToTop = () => {

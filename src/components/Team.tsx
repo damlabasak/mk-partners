@@ -1,7 +1,8 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Mail, GraduationCap, Globe, X } from 'lucide-react';
-import mkLogo from '../assets/mk-logo.png';
-import '../styles/components/Team.css';
+const mkLogo = '/mk-logo.png';
 
 interface TeamMember {
   name: string;

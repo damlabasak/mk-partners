@@ -1,7 +1,8 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Phone, Mail, Send, MessageCircle, CheckCircle2, X } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import '../styles/components/Contact.css';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -86,9 +87,9 @@ export const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     // Retrieve EmailJS configuration from environment variables
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     // If variables are missing, fallback to simulated success for smooth local testing
     if (!serviceId || !templateId || !publicKey) {

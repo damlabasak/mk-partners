@@ -1,6 +1,7 @@
+'use client';
+
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
-import '../styles/components/Hero.css';
 
 export const Hero: React.FC = () => {
   const handleScrollTo = (id: string) => {
