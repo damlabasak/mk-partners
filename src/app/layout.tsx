@@ -24,7 +24,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://mkpartners.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://damlabasak.github.io/mk-partners'),
   title: {
     default: 'MK Partners | Hukuki Danışmanlık & Avukatlık',
     template: '%s | MK Partners',
