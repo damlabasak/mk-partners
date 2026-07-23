@@ -823,7 +823,7 @@ export const translations: Record<Language, Translations> = {
       titleLine1: 'Diritto Strategico',
       titleGold: 'Fiducia Duratura',
       description:
-        'MK Partners offre servizi di contenzioso, risoluzione delle controversie e consulenza legale di altissimo livello a privati e imprese in Turchia e in Europa.',
+        'MK Partners offre assistenza legale qualificata in materia di contenzioso, risoluzione delle controversie e consulenza legale per privati e imprese, operando tra Turchia ed Europa.',
       practicesBtn: 'Aree di Attività',
       contactBtn: 'Contattaci',
       discover: 'Scopri',
@@ -832,8 +832,8 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'Chi Siamo & Valori',
       title: 'Chi Siamo',
       heading: 'Il Vostro Partner Legale di Fiducia',
-      p1: 'MK Partners Legal Consultancy offre fin dalla sua fondazione servizi di assistenza legale e consulenza di alta qualità, ispirandosi rigorosamente ai principi dello Stato di diritto e della giustizia.',
-      p2: 'Con il nostro team dinamico ed esperto, forniamo soluzioni affidabili in tutti i settori del diritto, con particolare attenzione al diritto societario, diritto del lavoro, procedure esecutive, proprietà intellettuale e diritto penale.',
+      p1: 'MK Partners Legal Consultancy offre servizi di assistenza e consulenza legale di alto livello, fondati sui principi dello Stato di diritto, dell’etica professionale e della giustizia.',
+      p2: 'Grazie a un team dinamico e altamente qualificato, assistiamo privati e imprese in molteplici aree del diritto, con particolare esperienza in diritto societario e commerciale, diritto del lavoro, procedure esecutive, proprietà intellettuale e diritto penale.',
       stats: {
         expValue: '10+',
         expLabel: 'Anni di Esperienza',
@@ -843,16 +843,16 @@ export const translations: Record<Language, Translations> = {
       values: {
         title1: 'Consulenza Preventiva',
         desc1:
-          'Individuiamo i potenziali rischi legali prima che le controversie insorgano, tutelando i clienti con contratti solidi e consulenza proattiva.',
+          'Individuiamo i potenziali rischi legali prima che insorgano controversie, aiutando i nostri clienti a tutelare il proprio tempo e le proprie risorse attraverso una consulenza proattiva e solidi strumenti contrattuali.',
         title2: 'Piena Conformità',
         desc2:
-          'Garantiamo la piena conformità alla normativa in continua evoluzione, supportando i clienti nel condurre le proprie attività in totale sicurezza.',
+          'Garantiamo la piena conformità alla normativa in continua evoluzione, consentendo ai nostri clienti di operare con sicurezza e certezza giuridica.',
         title3: 'Approccio Orientato alle Soluzioni',
         desc3:
-          'Offriamo soluzioni pratiche ed efficaci concepite per aiutare i clienti a raggiungere i propri obiettivi commerciali e personali.',
+          'Non ci limitiamo a individuare i rischi: proponiamo soluzioni pratiche ed efficaci, studiate per aiutare i nostri clienti a raggiungere i propri obiettivi personali e imprenditoriali.',
         title4: 'Approccio Centrato sul Cliente',
         desc4:
-          'Consideriamo uniche le esigenze di ogni cliente, fornendo un servizio di consulenza legale personalizzato su misura.',
+          'Comprendiamo che ogni cliente ha esigenze specifiche e offriamo soluzioni legali personalizzate, costruite su misura.',
       },
     },
     practices: {
@@ -868,13 +868,13 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Costituzione di società, governance aziendale, contrattualistica commerciale e gestione legale delle operazioni quotidiane.',
           detailedDesc:
-            'MK Partners offre consulenza legale a società nazionali ed estere in ogni fase del ciclo di vita aziendale. Forniamo soluzioni professionali nella redazione di contratti commerciali, assemblee dei soci, controversie sulla concorrenza sleale e corporate governance.',
+            'MK Partners assiste imprese italiane e internazionali in ogni fase della loro attività, dalla costituzione della società alla contrattualistica commerciale, fino alla corporate governance e alla conformità normativa.',
           subServices: [
             'Costituzione di Società e Redazione dello Statuto',
-            'Negoziati di Contratti Commerciali Internazionali',
-            'Corporate Governance e Consulenza sulla Compliance',
-            'Operazioni del Consiglio di Amministrazione e Assemblea',
-            'Controversie su Concorrenza Sleale e Diritto Antitrust',
+            'Contratti Commerciali Nazionali e Internazionali',
+            'Corporate Governance e Compliance Normativa',
+            'Consigli di Amministrazione e Assemblee dei Soci',
+            'Diritto della Concorrenza e Antitrust',
           ],
         },
         {
@@ -883,13 +883,13 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Tutela dei diritti di indagati, imputati e persone offese nei procedimenti penali; difesa tecnica efficace.',
           detailedDesc:
-            'Forniamo assistenza legale completa nelle fasi di indagine, dibattimento ed esecuzione penale. In ogni procedimento penale a carico di persone fisiche o giuridiche, difendiamo i diritti dei nostri assistiti nel pieno rispetto della legge.',
+            'Forniamo assistenza e difesa legale in tutte le fasi del procedimento penale, dalle indagini preliminari all’esecuzione della pena, garantendo la piena tutela dei diritti dei nostri assistiti.',
           subServices: [
-            'Difesa Tecnica nelle Indagini Preliminari',
-            'Tutela dei Diritti dell\'Indagato e dell\'Imputato',
-            'Rappresentanza della Persona Offesa e Parte Civile',
-            'Difesa in Giudizio e Procedimenti di Appello',
-            'Consulenza in Diritto Penitenziario ed Esecuzione',
+            'Difesa Penale',
+            'Assistenza a Indagati e Imputati',
+            'Assistenza alla Persona Offesa',
+            'Impugnazioni e Appelli',
+            'Diritto Penitenziario ed Esecuzione Penale',
           ],
         },
         {
@@ -898,13 +898,13 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Cause commerciali, arbitrato, controversie amministrative e gestione del rischio pre-contenzioso.',
           detailedDesc:
-            'Offriamo servizi qualificati di contenzioso e arbitrato per proteggere gli interessi dei nostri clienti. Operiamo con meticolosità dalle trattative stragiudiziali fino alle fasi di esecuzione e ricorsi dinanzi alle giurisdizioni superiori.',
+            'Assistiamo i nostri clienti nella gestione di controversie civili, commerciali e amministrative, offrendo servizi di contenzioso e arbitrato, dalla fase stragiudiziale fino all’esecuzione delle decisioni.',
           subServices: [
-            'Cause Commerciali e di Recupero Crediti',
+            'Contenzioso Commerciale',
+            'Recupero Crediti',
             'Arbitrato Nazionale e Internazionale',
-            'Ricorsi Amministrativi e Diritto Tributario',
-            'Procedure Esecutive, Fallimentari e Ristrutturazione Debiti',
-            'Analisi del Rischio e Trattative di Transazione',
+            'Contenzioso Amministrativo e Tributario',
+            'Analisi del Rischio e Accordi Transattivi',
           ],
         },
         {
@@ -913,13 +913,13 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Contratti di lavoro, relazioni industriali, procedimenti sindacali e audit di conformità lavorativa.',
           detailedDesc:
-            'Forniamo consulenza continuativa agli uffici risorse umane aziendali, creando strutture idonee a prevenire contenziosi. Assistiamo le aziende nella stesura dei contratti di lavoro, impugnazione di licenziamenti e sicurezza sul lavoro.',
+            'Assistiamo imprese e datori di lavoro in tutti gli aspetti del diritto del lavoro, dalla contrattualistica alla gestione del personale, fino alla risoluzione delle controversie e alla conformità normativa.',
           subServices: [
-            'Redazione di Contratti di Lavoro e Regolamenti Aziendali',
-            'Controversie su Licenziamento, TFR e Indennità',
-            'Audit di Conformità su Salute e Sicurezza sul Lavoro',
-            'Contrattazione Collettiva e Relazioni Sindacali',
-            'Trasferimento di Dipendenti e Procedure di Licenziamento',
+            'Contratti di Lavoro e Regolamenti Aziendali',
+            'Contenzioso in Materia di Licenziamento e TFR',
+            'Audit in Materia di Salute e Sicurezza sul Lavoro',
+            'Relazioni Sindacali e Contrattazione Collettiva',
+            'Trasferimenti di Dipendenti e Procedure di Licenziamento',
           ],
         },
         {
@@ -928,26 +928,26 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Acquisizioni immobiliari, rigenerazione urbana, urbanistica e contratti di appalto su grande scala.',
           detailedDesc:
-            'Assistiamo i clienti nello sviluppo di progetti immobiliari, rigenerazione urbana, appalti di costruzione e locazioni. Gestiamo con professionalità contenziosi catastali, piani urbanistici e acquisti di immobili da parte di cittadini stranieri.',
+            'Assistiamo privati e imprese in operazioni immobiliari, progetti edilizi, riqualificazione urbana e investimenti immobiliari, garantendo sicurezza giuridica in ogni fase dell’operazione.',
           subServices: [
-            'Contratti di Appalto di Costruzione e Partitioning',
-            'Stesura Contratti di Locazione e Sfratti',
-            'Cause di Trascrizione Catastale e Scioglimento della Comunione',
-            'Consulenza Legale in Rigenerazione Urbana',
-            'Due Diligence Legale per Investimenti Immobiliari',
+            'Contratti di Appalto',
+            'Contratti di Locazione e Sfratti',
+            'Contenzioso Immobiliare e Catastale',
+            'Consulenza in Materia di Rigenerazione Urbana',
+            'Due Diligence Immobiliare',
           ],
         },
         {
           id: 'ma',
-          title: 'Diritto Esecutivo e Fallimentare',
+          title: 'Diritto dell’Esecuzione e della Crisi d’Impresa',
           shortDesc:
             'Recupero crediti, procedure esecutive, ristrutturazione del debito e procedure concorsuali.',
           detailedDesc:
-            'Forniamo assistenza in procedimenti esecutivi commerciali e privati per il recupero dei crediti. Supportiamo le imprese in procedure concordatarie e trattative di ristrutturazione del debito.',
+            'Assistiamo privati e imprese nel recupero dei crediti, nelle procedure esecutive, nelle procedure concorsuali e nelle operazioni di ristrutturazione del debito.',
           subServices: [
             'Recupero Crediti e Procedure Esecutive',
-            'Procedure Fallimentari e Concordati',
-            'Ristrutturazione e Negoziati del Debito',
+            'Procedure Concorsuali e Concordato Preventivo',
+            'Ristrutturazione del Debito',
           ],
         },
       ],
@@ -966,20 +966,20 @@ export const translations: Record<Language, Translations> = {
           name: 'Avv. Özgün Gizem Meteoğlu (LL.M.)',
           title: 'Soci Fondatore',
           specialty:
-            'Diritto del Lavoro, Consulenza Societaria, Controversie di Lavoro',
-          bio: 'L\'Avv. Özgün Gizem Meteoğlu (LL.M.) è specializzata in diritto del lavoro e consulenza societaria. Nel corso della sua carriera ha fornito consulenza a primarie società turche su contenzioso del lavoro, mediazione e gestione del rischio legale.',
+            'Diritto del Lavoro, Consulenza Societaria, Contenzioso del Lavoro',
+          bio: 'L\'Avv. Özgün Gizem Meteoğlu (LL.M.) è specializzata in diritto del lavoro, consulenza societaria e contenzioso del lavoro. Assiste società nazionali e internazionali in materia di diritto del lavoro, corporate governance, conformità normativa, gestione delle risorse umane e gestione del rischio. La sua attività comprende inoltre il diritto della proprietà intellettuale, il diritto delle tecnologie e la protezione dei dati personali (KVKK/GDPR).',
           education: [
             'Università Doğuş - Facoltà di Giurisprudenza (Laurea)',
             'Università Doğuş - Master in Diritto Privato (LL.M.) | Borsa di Studio',
-            'Tesi: "Il Principio di Eguaglianza e Divieto di Discriminazione nel Diritto del Lavoro"',
+            'Tesi: "Il principio di eguaglianza e divieto di discriminazione nel diritto del lavoro"',
           ],
           languages: ['Turco', 'Inglese'],
         },
         {
           name: 'Avv. Osman Mete Meteoğlu',
           title: 'Soci Fondatore',
-          specialty: 'Diritto Societario, Diritto Commerciale, Consulenza Aziendale',
-          bio: 'L\'Avv. Osman Mete Meteoğlu è specializzato in diritto commerciale e societario. Vanta una consolidata esperienza nel supporto a holding e gruppi industriali in contenziosi commerciali, governance e contrattualistica internazionale.',
+          specialty: 'Diritto Societario, Diritto Commerciale, Consulenza Societaria',
+          bio: 'L\'Avv. Osman Mete Meteoğlu è specializzato in diritto societario e commerciale. Assiste società nazionali e internazionali in materia di corporate governance, contrattualistica commerciale, operazioni di M&A, conformità normativa e risoluzione delle controversie, offrendo soluzioni legali orientate allo sviluppo delle imprese.',
           education: ['Università Doğuş - Facoltà di Giurisprudenza (Laurea)'],
           languages: ['Turco', 'Inglese'],
         },
@@ -987,8 +987,8 @@ export const translations: Record<Language, Translations> = {
           name: 'Avv. Selman Kaya',
           title: 'Soci Fondatore',
           specialty:
-            'Diritto Penale ed Esecutivo, Recupero Crediti, Diritto di Famiglia ed Immobiliare',
-          bio: 'L\'Avv. Selman Kaya è specializzato in diritto esecutivo e fallimentare, recupero crediti commerciali, diritto penale e diritto immobiliare. Ha assistito primari istituti bancari ed enti finanziari nella gestione di crediti in sofferenza.',
+            'Diritto Penale, Diritto dell’Esecuzione e della Crisi d’Impresa, Recupero Crediti, Diritto di Famiglia e Diritto Immobiliare',
+          bio: 'L\'Avv. Selman Kaya è specializzato in diritto dell’esecuzione e della crisi d’impresa, recupero crediti, diritto penale, diritto di famiglia e diritto immobiliare. Assiste istituti bancari, enti finanziari e imprese nella gestione dei crediti deteriorati, delle procedure esecutive e delle controversie giudiziarie.',
           education: ['Università Doğuş - Facoltà di Giurisprudenza (Laurea)'],
           languages: ['Turco', 'Inglese'],
         },
@@ -997,7 +997,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Avvocato',
           specialty:
             'Diritto dell\'Unione Europea, Commercio Internazionale, Consulenza agli Investimenti',
-          bio: 'L\'Avv. Leman Melike Gülmez (LL.M.) opera nell\'ambito del diritto UE e del commercio internazionale. Dopo il conseguimento del Master presso la Sapienza Università di Roma, coordina da Roma le attività europee dello studio MK Partners.',
+          bio: 'L\'Avv. Leman Melike Gülmez (LL.M.) opera nell’ambito del diritto dell’Unione Europea, del commercio internazionale e della consulenza agli investimenti. Dopo aver conseguito il Master presso la Sapienza Università di Roma, coordina da Roma le attività europee di MK Partners, assistendo clienti nei rapporti commerciali e negli investimenti tra la Turchia e l’Unione Europea.',
           education: [
             'Università di Gaziantep - Facoltà di Giurisprudenza (Laurea)',
             'Sapienza Università di Roma - European Studies, Law and Economics (LL.M.)',
@@ -1011,28 +1011,28 @@ export const translations: Record<Language, Translations> = {
       title: 'Unisciti al Nostro Team',
       infoTitle: 'Plasmiamo Insieme il Futuro del Diritto',
       infoDesc:
-        'In MK Partners apriamo le nostre porte a professionisti legali dinamici, analitici e orientati alla crescita. Accogliamo praticanti avvocati e avvocati abilitati a partecipare a processi di consulenza di alto livello tra Istanbul e Roma.',
+        'In MK Partners accogliamo professionisti del diritto dinamici, analitici e orientati alla crescita. Offriamo opportunità a praticanti avvocati e avvocati abilitati interessati a lavorare in un contesto internazionale tra Istanbul e Roma.',
       positions: {
         internTitle: 'Praticante Avvocato',
         internBadge: 'Tirocinio Obbligatorio',
         internDesc:
-          'Un programma di mentorship di altissimo livello che offre ricerca giuridica, redazione di atti, partecipazione a udienze e incontri con i clienti.',
-        internFeature1: 'Contenzioso Strategico ed Esecuzioni',
-        internFeature2: 'Lingue Straniere e Pubblicazioni',
+          'Un percorso formativo di alto livello che offre esperienza pratica nella ricerca giuridica, nella redazione di atti, nella partecipazione alle udienze e negli incontri con i clienti.',
+        internFeature1: 'Contenzioso Strategico e Procedure Esecutive',
+        internFeature2: 'Lingue Straniere e Attività Editoriale',
         lawyerTitle: 'Avvocato / Avvocato Senior',
-        lawyerBadge: 'Abilitato',
+        lawyerBadge: 'Avvocato Abilitato',
         lawyerDesc:
-          'Professionisti esperti in grado di assumere responsabilità autonome in Diritto Commerciale, Societario, del Lavoro e M&A.',
+          'Ricerchiamo professionisti con esperienza, in grado di gestire autonomamente incarichi in diritto commerciale, societario, del lavoro, operazioni di M&A e risoluzione delle controversie.',
         lawyerFeature1: 'Gestione di Contratti e Progetti',
         lawyerFeature2: 'Portafoglio Clienti Internazionale',
         summerTitle: 'Tirocinante Estivo (Studente)',
         summerBadge: 'Periodo Estivo',
         summerDesc:
-          'Rivolto agli studenti del 3° o 4° anno di giurisprudenza per acquisire esperienza pratica nello studio legale.',
+          'Rivolto agli studenti del 3° e 4° anno di Giurisprudenza interessati ad acquisire esperienza pratica all’interno di uno studio legale.',
       },
       cultureTitle: 'Cosa Cerchiamo',
       cultureText:
-        'Elevato senso di responsabilità, forti capacità di ricerca, ottima conoscenza dell\'inglese (o seconda lingua) e orientamento al lavoro di squadra.',
+        'Elevato senso di responsabilità, solide capacità di ricerca e analisi, ottima conoscenza della lingua inglese (o di un’altra lingua straniera), attitudine al lavoro di squadra.',
       formTitle: 'Modulo di Candidatura (CV)',
       formSubtitle:
         'Compila il modulo sottostante per inviare il tuo Curriculum Vitae (CV) aggiornato.',
