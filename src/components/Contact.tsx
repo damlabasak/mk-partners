@@ -115,7 +115,7 @@ export const Contact: React.FC = () => {
       from_name: formData.name,
       from_email: formData.email,
       phone: formData.phone || 'Belirtilmedi',
-      subject: getSubjectLabel(formData.subject),
+      subject: `Website - ${getSubjectLabel(formData.subject)}`,
       message: formData.message
     };
 
