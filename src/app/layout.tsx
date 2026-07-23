@@ -59,21 +59,21 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: '/mk-logo.png',
-    shortcut: '/mk-logo.png',
-    apple: '/mk-logo.png',
+    icon: '/mk-partners/mk-logo.png',
+    shortcut: '/mk-partners/mk-logo.png',
+    apple: '/mk-partners/mk-logo.png',
   },
   openGraph: {
     title: 'MK Partners | Premium Hukuki Danışmanlık & Avukatlık',
     description:
       'Türkiye genelinde ve Roma\'da yer alan güçlü avukat ağıyla yüksek kalitede hukuki danışmanlık hizmetleri.',
-    url: 'https://mkpartners.com',
+    url: 'https://damlabasak.github.io/mk-partners',
     siteName: 'MK Partners Legal Consultancy',
     locale: 'tr_TR',
     type: 'website',
     images: [
       {
-        url: '/mk-logo.png',
+        url: '/mk-partners/mk-logo.png',
         width: 1200,
         height: 630,
         alt: 'MK Partners Legal Consultancy Logo',
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     title: 'MK Partners | Hukuki Danışmanlık & Avukatlık',
     description:
       'Türkiye genelinde ve Roma\'da yer alan güçlü avukat ağıyla yüksek kalitede hukuki danışmanlık hizmetleri.',
-    images: ['/mk-logo.png'],
+    images: ['/mk-partners/mk-logo.png'],
   },
   robots: {
     index: true,
@@ -109,9 +109,9 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'LegalService',
     name: 'MK Partners Legal Consultancy',
-    url: 'https://mkpartners.com',
-    logo: 'https://mkpartners.com/mk-logo.png',
-    image: 'https://mkpartners.com/mk-logo.png',
+    url: 'https://damlabasak.github.io/mk-partners',
+    logo: 'https://damlabasak.github.io/mk-partners/mk-logo.png',
+    image: 'https://damlabasak.github.io/mk-partners/mk-logo.png',
     description:
       'MK Partners, Türkiye genelinde ve Roma\'da yer alan güçlü avukat ağıyla yerli ve yabancı müvekkillere yüksek kalitede hukuki danışmanlık ve avukatlık hizmetleri sunan premium bir hukuk bürosudur.',
     telephone: '+905054296196',
