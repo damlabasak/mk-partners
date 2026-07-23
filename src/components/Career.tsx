@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
-import { Briefcase, UploadCloud, FileText, CheckCircle2, X, Award, Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { Briefcase, CheckCircle2, X, Award, Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -19,14 +19,10 @@ export const Career: React.FC = () => {
     kvkkConsent: false
   });
 
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [dragActive, setDragActive] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [showKvkkModal, setShowKvkkModal] = useState(false);
-
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -46,64 +42,6 @@ export const Career: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: checked }));
   };
 
-  const validateAndSetFile = (file: File) => {
-    setErrorMsg('');
-    const allowedExtensions = ['pdf', 'doc', 'docx'];
-    const fileExt = file.name.split('.').pop()?.toLowerCase() || '';
-
-    if (!allowedExtensions.includes(fileExt)) {
-      return setErrorMsg('Lütfen sadece PDF veya DOC/DOCX formatında bir CV yükleyin.');
-    }
-
-    const maxSizeInMB = 10;
-    if (file.size > maxSizeInMB * 1024 * 1024) {
-      return setErrorMsg(`Dosya boyutu ${maxSizeInMB} MB'tan küçük olmalıdır.`);
-    }
-
-    setSelectedFile(file);
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      validateAndSetFile(e.target.files[0]);
-    }
-  };
-
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDragActive(true);
-  };
-
-  const handleDragLeave = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDragActive(false);
-  };
-
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDragActive(false);
-
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      validateAndSetFile(e.dataTransfer.files[0]);
-    }
-  };
-
-  const handleRemoveFile = () => {
-    setSelectedFile(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
-  const formatFileSize = (bytes: number): string => {
-    if (bytes < 1024) return bytes + ' B';
-    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
-    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg('');
@@ -118,8 +56,12 @@ export const Career: React.FC = () => {
       return setErrorMsg('Lütfen geçerli bir e-posta adresi girin.');
     }
 
-    if (!selectedFile) {
-      return setErrorMsg('Lütfen özgeçmişinizi (CV) dosya alanından yükleyin.');
+    if (!formData.coverLetter.trim() || formData.coverLetter.length < 20) {
+      return setErrorMsg('Lütfen kendinizi tanıtan kısa bir metin yazın (en az 20 karakter).');
+    }
+
+    if (formData.coverLetter.length > 15000) {
+      return setErrorMsg('Girdiğiniz metin çok uzun (Maksimum 15.000 karakter).');
     }
 
     if (!formData.kvkkConsent) {
@@ -129,7 +71,7 @@ export const Career: React.FC = () => {
     setIsSubmitting(true);
 
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_CAREER_TEMPLATE_ID || process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
@@ -147,7 +89,6 @@ export const Career: React.FC = () => {
           coverLetter: '',
           kvkkConsent: false
         });
-        setSelectedFile(null);
       }, 1200);
       return;
     }
@@ -159,7 +100,7 @@ export const Career: React.FC = () => {
       position: formData.position,
       education: formData.education || 'Belirtilmedi',
       languages: formData.languages || 'Belirtilmedi',
-      message: `[KARIYER BAŞVURUSU]\nDosya Adı: ${selectedFile.name}\n\nÖn Yazı:\n${formData.coverLetter || 'Ön yazı belirtilmedi.'}`
+      message: formData.coverLetter
     };
 
     emailjs.send(serviceId, templateId, templateParams, publicKey)
@@ -176,7 +117,6 @@ export const Career: React.FC = () => {
           coverLetter: '',
           kvkkConsent: false
         });
-        setSelectedFile(null);
       })
       .catch((err) => {
         console.error('CV Submission Error:', err);
@@ -386,51 +326,7 @@ export const Career: React.FC = () => {
                   />
                 </div>
 
-                {/* CV File Upload Dropzone */}
-                <div className="form-group file-upload-container">
-                  <label className="form-label">{t.career.cvLabel}</label>
 
-                  {selectedFile ? (
-                    <div className="file-selected-box">
-                      <div className="file-selected-info">
-                        <FileText size={24} className="file-icon" />
-                        <div>
-                          <div className="file-name">{selectedFile.name}</div>
-                          <div className="file-size">{formatFileSize(selectedFile.size)}</div>
-                        </div>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={handleRemoveFile}
-                        className="file-remove-btn"
-                        title="Dosyayı kaldır"
-                      >
-                        <X size={18} />
-                      </button>
-                    </div>
-                  ) : (
-                    <div
-                      className={`file-upload-dropzone ${dragActive ? 'drag-active' : ''}`}
-                      onDragOver={handleDragOver}
-                      onDragLeave={handleDragLeave}
-                      onDrop={handleDrop}
-                      onClick={() => fileInputRef.current?.click()}
-                    >
-                      <input
-                        type="file"
-                        ref={fileInputRef}
-                        onChange={handleFileChange}
-                        accept=".pdf,.doc,.docx"
-                        className="hidden-file-input"
-                      />
-                      <UploadCloud size={36} className="file-upload-icon" />
-                      <p className="file-upload-text">
-                        <span>{t.career.cvDragText}</span> ya da <strong>{t.career.cvBrowseText}</strong>
-                      </p>
-                      <p className="file-upload-hint">{t.career.cvHint}</p>
-                    </div>
-                  )}
-                </div>
 
                 {/* Cover Letter / Note */}
                 <div className="form-group">
