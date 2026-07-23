@@ -528,16 +528,16 @@ export const translations: Record<Language, Translations> = {
       values: {
         title1: 'Preventive Law',
         desc1:
-          'We identify potential legal risks before disputes arise; protecting our clients from loss of time and capital through proactive advisory and robust contractual structures.',
+          'We identify potential legal risks before disputes arise, helping our clients avoid unnecessary loss of time and resources through proactive legal advice and strong contractual frameworks.',
         title2: 'Full Compliance',
         desc2:
-          'We ensure total compliance with ever-changing legislation, supporting clients in executing their business operations with complete regulatory safety.',
+          'We ensure full compliance with evolving legislation, helping our clients conduct their business with confidence and regulatory certainty.',
         title3: 'Solution-Oriented',
         desc3:
-          'We do not merely point out risks; we offer practical, actionable solutions designed to help clients reach their commercial and personal objectives.',
+          'We do not merely identify risks; we provide practical, tailored solutions that help our clients achieve their commercial and personal objectives.',
         title4: 'Client-Centric Approach',
         desc4:
-          'We treat every client\'s needs as unique and deliver tailored, bespoke legal consultancy services.',
+          'We understand that every client has unique needs and provide tailored legal solutions with a personal approach.',
       },
     },
     practices: {
@@ -545,7 +545,7 @@ export const translations: Record<Language, Translations> = {
       title: 'Practice Areas',
       readMore: 'View Details →',
       ourServices: 'Our Services',
-      getAdviceModal: 'Get Legal Advice in This Field',
+      getAdviceModal: 'Request Legal Advice',
       items: [
         {
           id: 'corporate',
@@ -553,13 +553,13 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Company incorporations, corporate governance, commercial contracts, and legal management of day-to-day business operations.',
           detailedDesc:
-            'MK Partners provides legal consultancy at every phase of domestic and foreign companies\' commercial lifecycles. We deliver professional solutions in drafting commercial agreements, board and shareholder meeting management, unfair competition disputes, and corporate governance.',
+            'We advise domestic and international businesses at every stage of their operations, from company formation and commercial contracts to corporate governance and regulatory compliance.',
           subServices: [
-            'Company Incorporation & Articles of Association',
-            'Negotiation of International Commercial Contracts',
+            'Company Formation & Articles of Association',
+            'Commercial Contracts',
             'Corporate Governance & Regulatory Compliance',
-            'Board of Directors & General Assembly Operations',
-            'Unfair Competition & Antitrust Disputes',
+            'Board & Shareholder Meetings',
+            'Competition & Antitrust Law',
           ],
         },
         {
@@ -568,13 +568,13 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Protection of suspect, accused, and victim rights during investigation and prosecution; effective defense in criminal litigation.',
           detailedDesc:
-            'We provide comprehensive criminal law representation during investigation, trial, and execution phases. In every criminal case involving individuals or corporations, we fiercely defend our clients\' rights without deviating from the rule of law.',
+            'We provide strategic legal representation throughout criminal investigations, trials, appeals, and enforcement proceedings, protecting our clients’ rights at every stage.',
           subServices: [
-            'Defense Representation in Criminal Investigations',
-            'Protection of Suspect & Accused Rights',
-            'Victim & Intervenor Representation in Judicial Proceedings',
-            'Defense & Appeal Processes in Criminal Courts',
-            'Penitentiary & Execution Law Advisory',
+            'Criminal Defense',
+            'Suspect & Defendant Representation',
+            'Victim Representation',
+            'Appeals',
+            'Enforcement & Prison Law',
           ],
         },
         {
@@ -583,13 +583,13 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Commercial lawsuits, arbitration, administrative disputes, and pre-litigation risk management.',
           detailedDesc:
-            'We offer robust litigation and arbitration services to protect our clients\' interests in resolving commercial and administrative disputes. We work meticulously from pre-suit settlement talks to court enforcement and high court appeals.',
+            'We represent clients in commercial, civil, and administrative disputes, offering effective litigation and arbitration services from pre-dispute negotiations to final enforcement.',
           subServices: [
-            'Commercial & Debt Collection Lawsuits',
-            'International & Domestic Arbitration',
-            'Administrative Actions & Tax Litigation',
-            'Enforcement, Bankruptcy & Debt Restructuring',
-            'Pre-Litigation Risk Analysis & Settlement Negotiations',
+            'Commercial Litigation',
+            'Debt Recovery',
+            'Domestic & International Arbitration',
+            'Administrative & Tax Litigation',
+            'Pre-Litigation Strategy & Settlement',
           ],
         },
         {
@@ -598,13 +598,13 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Employment agreements, employer-employee relations, union processes, and labor law compliance audits.',
           detailedDesc:
-            'We offer daily labor law consultancy to corporate HR departments, creating structures that minimize potential disputes. We assist with drafting employment contracts, reinstatement and severance litigation, and workplace safety compliance.',
+            'We advise employers on all aspects of employment law, from contracts and workplace policies to dispute resolution and regulatory compliance.',
           subServices: [
-            'Drafting Employment Contracts & Internal Regulations',
-            'Reinstatement, Severance & Notice Pay Litigation',
-            'Occupational Health & Safety (OHS) Compliance Audits',
-            'Collective Bargaining Agreements & Union Relations',
-            'Employee Transfers & Termination Management',
+            'Employment Contracts & HR Policies',
+            'Dismissal & Severance Disputes',
+            'Workplace Health & Safety Compliance',
+            'Collective Labor Relations',
+            'Employee Transfers & Terminations',
           ],
         },
         {
@@ -613,13 +613,13 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Real estate acquisition projects, urban transformation, zoning, and large-scale construction contracts.',
           detailedDesc:
-            'We provide legal guidance in real estate development projects, urban renewal processes, construction agreements in return for flat, and tenancy relations. We professionally handle title deed registration, zoning disputes, and property acquisition for foreign nationals.',
+            'We provide legal support for real estate transactions, construction projects, urban redevelopment, and property investments, ensuring every stage is legally secure.',
           subServices: [
-            'Construction Agreements in Return for Flat & Revenue Sharing',
-            'Drafting Lease Contracts & Eviction Lawsuits',
-            'Title Deed Cancellation & Partition of Property Lawsuits',
-            'Urban Transformation Legal Advisory',
-            'Real Estate Due Diligence & Investment Audits',
+            'Construction Agreements',
+            'Lease Agreements & Eviction Proceedings',
+            'Title Deed & Property Disputes',
+            'Urban Redevelopment',
+            'Real Estate Due Diligence',
           ],
         },
         {
@@ -628,11 +628,13 @@ export const translations: Record<Language, Translations> = {
           shortDesc:
             'Legal assistance in debt collection, execution proceedings, debt restructuring, and bankruptcy cases.',
           detailedDesc:
-            'We provide commercial and individual enforcement proceedings for debt collection. We assist clients in bankruptcy, concordat proceedings, and conduct debt restructuring negotiations with financial institutions.',
+            'We assist individuals and businesses in debt recovery, enforcement proceedings, bankruptcy, restructuring, and insolvency matters.',
           subServices: [
-            'Debt Collection & Execution Proceedings',
-            'Bankruptcy & Concordat Proceedings',
-            'Debt Restructuring & Negotiations',
+            'Debt Recovery & Enforcement',
+            'Bankruptcy & Insolvency',
+            'Debt Restructuring',
+            'Creditor Representation',
+            'Enforcement Proceedings',
           ],
         },
       ],
@@ -645,18 +647,18 @@ export const translations: Record<Language, Translations> = {
       specialtiesTitle: 'Areas of Expertise',
       aboutTitle: 'About',
       educationTitle: 'Education',
-      languagesTitle: 'Languages Spoken',
+      languagesTitle: 'Languages',
       members: [
         {
           name: 'Att. Özgün Gizem Meteoğlu (LL.M.)',
           title: 'Managing Partner',
           specialty:
             'Employment Law, Corporate Advisory, Labor & Employment Disputes',
-          bio: 'Att. Özgün Gizem Meteoğlu (LL.M.) specializes in labor law, corporate advisory, and employment disputes. Throughout her career, she has advised leading Turkish corporations on labor law, dispute management, mediation, HR processes, and risk management. She also counsels on IP law, tech law, and data protection (KVKK/GDPR).',
+          bio: 'Özgün Gizem Meteoğlu (LL.M.) is a Managing Partner specializing in employment law, corporate advisory, and employment disputes. She advises domestic and international companies on employment law, corporate governance, HR compliance, dispute resolution, and risk management. Her practice also covers intellectual property, technology law, and data protection (KVKK/GDPR).',
           education: [
             'Doğuş University Faculty of Law (LL.B.)',
-            'Doğuş University Private Law Master\'s Program (LL.M.) | Full Scholarship',
-            'Thesis: "Principle of Equality & Non-Discrimination in Labor Law"',
+            'Doğuş University – LL.M. in Private Law (Full Scholarship)',
+            'LL.M. Thesis: “The Principle of Equality and Non-Discrimination in Employment Law”',
           ],
           languages: ['Turkish', 'English'],
         },
@@ -664,7 +666,7 @@ export const translations: Record<Language, Translations> = {
           name: 'Att. Osman Mete Meteoğlu',
           title: 'Managing Partner',
           specialty: 'Corporate Law, Commercial Law, Corporate Advisory',
-          bio: 'Att. Osman Mete Meteoğlu specializes in commercial law, corporate law, and business advisory. He has extensive experience advising major holdings, industrial enterprises, and corporate clients on commercial disputes, governance, regulatory compliance, M&A, and contract management.',
+          bio: 'Osman Mete Meteoğlu specializes in corporate and commercial law, advising domestic and international businesses on corporate governance, commercial contracts, mergers and acquisitions, regulatory compliance, and dispute resolution. His practice focuses on delivering practical legal solutions that support sustainable business growth.',
           education: ['Doğuş University Faculty of Law (LL.B.)'],
           languages: ['Turkish', 'English'],
         },
@@ -672,20 +674,20 @@ export const translations: Record<Language, Translations> = {
           name: 'Att. Selman Kaya',
           title: 'Managing Partner',
           specialty:
-            'Enforcement & Criminal Law, Commercial Debt Collection, Family & Real Estate Law',
-          bio: 'Att. Selman Kaya focuses on enforcement and bankruptcy law, commercial debt recovery, criminal law, family law, and real estate litigation. He has counseled leading financial institutions and corporations on debt recovery strategies and high-volume enforcement portfolios.',
+            'Enforcement & Bankruptcy Law, Criminal Law, Debt Recovery, Family Law, Real Estate Litigation',
+          bio: 'Selman Kaya specializes in enforcement and bankruptcy law, debt recovery, criminal law, family law, and real estate litigation. He advises financial institutions and corporate clients on debt recovery strategies, enforcement proceedings, and complex litigation matters.',
           education: ['Doğuş University Faculty of Law (LL.B.)'],
           languages: ['Turkish', 'English'],
         },
         {
-          name: 'Att. Leman Melike Gülmez (LL.M.)',
+          name: 'ATT. Leman Melike Gülmez (LL.M.)',
           title: 'Associate',
           specialty:
-            'EU Compliance & Contracts, International Trade Law, Investment Advisory',
-          bio: 'Att. Leman Melike Gülmez (LL.M.) works in EU law, international trade law, and investment advisory. Having completed her LL.M. at Sapienza University of Rome, she leads MK Partners\' European operations in Rome, advising clients across Turkey and the EU.',
+            'EU Law & Regulatory Compliance, International Trade Law, Commercial Contracts',
+          bio: 'Leman Melike Gülmez (LL.M.) focuses on EU law, international trade law, and cross-border commercial advisory. After completing her LL.M. at Sapienza University of Rome, she advises clients on regulatory compliance, commercial contracts, and international business transactions across Turkey and the European Union.',
           education: [
             'Gaziantep University Faculty of Law (LL.B.)',
-            'Sapienza University of Rome - European Studies, Law and Economics (LL.M.)',
+            'Sapienza University of Rome – LL.M. in European Studies (Law & Economics)',
           ],
           languages: ['Turkish', 'English', 'Italian'],
         },
@@ -701,23 +703,23 @@ export const translations: Record<Language, Translations> = {
         internTitle: 'Trainee Lawyer',
         internBadge: 'Legal Internship',
         internDesc:
-          'A high-quality mentorship program offering legal research, pleading drafting, court hearing attendance, and direct involvement in client meetings.',
+          'A high-quality mentorship program offering legal research, drafting pleadings, attending court hearings, and participating in client meetings.',
         internFeature1: 'Strategic Litigation & Enforcement',
-        internFeature2: 'Foreign Language & Legal Publishing',
+        internFeature2: 'Foreign Languages & Legal Writing',
         lawyerTitle: 'Associate / Senior Associate',
         lawyerBadge: 'Admitted Attorney',
         lawyerDesc:
-          'Experienced attorneys to take independent responsibility in Commercial, Corporate, Labor Law, M&A, and Dispute Resolution.',
+          'For experienced attorneys ready to take on independent responsibility in Commercial, Corporate, Employment, M&A, and Dispute Resolution matters.',
         lawyerFeature1: 'Contract & Project Management',
         lawyerFeature2: 'International Client Portfolio',
         summerTitle: 'Summer Intern (Student)',
         summerBadge: 'Summer Internship',
         summerDesc:
-          'For 3rd or 4th-year law students to gain hands-on experience in law firm operations and corporate consultancy.',
+          'For third- and fourth-year law students seeking hands-on experience in legal practice and corporate advisory.',
       },
       cultureTitle: 'What We Look For',
       cultureText:
-        'High sense of responsibility, strong research capabilities, fluent English (or additional foreign language), and a desire to excel in a dynamic team environment.',
+        'A strong sense of responsibility, excellent research skills, fluency in English (additional languages are an asset), and the ambition to thrive in a dynamic, collaborative environment.',
       formTitle: 'CV Application Form',
       formSubtitle:
         'Fill out the form below to submit your updated Curriculum Vitae (CV).',
