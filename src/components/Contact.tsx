@@ -92,11 +92,30 @@ export const Contact: React.FC = () => {
       return;
     }
 
+    const getSubjectLabel = (subjectKey: string) => {
+      switch (subjectKey) {
+        case 'genel':
+          return t.contact.subjectOptions.general;
+        case 'sirketler':
+          return t.contact.subjectOptions.corporate;
+        case 'ma':
+          return t.contact.subjectOptions.ma;
+        case 'dava':
+          return t.contact.subjectOptions.litigation;
+        case 'is':
+          return t.contact.subjectOptions.employment;
+        case 'kvkk':
+          return t.contact.subjectOptions.kvkk;
+        default:
+          return subjectKey;
+      }
+    };
+
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
       phone: formData.phone || 'Belirtilmedi',
-      subject: formData.subject,
+      subject: getSubjectLabel(formData.subject),
       message: formData.message
     };
 
