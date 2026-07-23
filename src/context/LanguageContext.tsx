@@ -15,6 +15,18 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [language, setLanguageState] = useState<Language>('tr');
 
   useEffect(() => {
+    // Check URL query parameters first
+    const params = new URLSearchParams(window.location.search);
+    const queryLang = params.get('lang') as Language;
+
+    if (queryLang && ['tr', 'en', 'it'].includes(queryLang)) {
+      setLanguageState(queryLang);
+      localStorage.setItem('mk_partners_lang', queryLang);
+      document.documentElement.lang = queryLang;
+      return;
+    }
+
+    // Fallback to localStorage
     const savedLang = localStorage.getItem('mk_partners_lang') as Language;
     if (savedLang && ['tr', 'en', 'it'].includes(savedLang)) {
       setLanguageState(savedLang);
@@ -26,6 +38,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setLanguageState(lang);
     localStorage.setItem('mk_partners_lang', lang);
     document.documentElement.lang = lang;
+
+    // Update URL query parameters
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', lang);
+    window.history.pushState({}, '', url.toString());
   };
 
   const currentTranslations = translations[language] || translations.tr;

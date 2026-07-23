@@ -54,7 +54,7 @@ export const Team: React.FC = () => {
             >
               {/* Logo Avatar Box */}
               <div className="team-avatar-box">
-                <img src={mkLogo} alt="MK Partners Logo" className="team-avatar-img" />
+                <img src={mkLogo} alt={`${member.name} - MK Partners`} className="team-avatar-img" />
               </div>
 
               <div className="team-info">
@@ -84,7 +84,7 @@ export const Team: React.FC = () => {
                 {/* Header (Avatar + Base info) */}
                 <div className="team-modal-header">
                   <div className="team-modal-avatar">
-                    <img src={mkLogo} alt="MK Partners Logo" className="team-modal-avatar-img" />
+                    <img src={mkLogo} alt={`${activeMember.name} - MK Partners Biography`} className="team-modal-avatar-img" />
                   </div>
                   <div>
                     <h3 className="team-modal-name">{activeMember.name}</h3>

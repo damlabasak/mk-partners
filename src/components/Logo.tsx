@@ -97,8 +97,9 @@ export const Logo: React.FC<LogoProps> = ({ variant = 'full', height = 60, class
     >
       {renderMonogram(numericHeight, numericHeight)}
       <div style={{ marginTop: numericHeight * 0.15 }}>
-        <h1 
+        <span 
           style={{ 
+            display: 'block',
             fontFamily: 'var(--font-serif)', 
             fontWeight: '600', 
             fontSize: numericHeight * 0.45, 
@@ -113,7 +114,7 @@ export const Logo: React.FC<LogoProps> = ({ variant = 'full', height = 60, class
           }}
         >
           MK Partners
-        </h1>
+        </span>
         <p 
           style={{ 
             fontFamily: 'var(--font-sans)', 

@@ -27,6 +27,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://damlabasak.github.io/mk-partners'),
+  alternates: {
+    canonical: 'https://damlabasak.github.io/mk-partners',
+    languages: {
+      'tr-TR': 'https://damlabasak.github.io/mk-partners/?lang=tr',
+      'en-US': 'https://damlabasak.github.io/mk-partners/?lang=en',
+      'it-IT': 'https://damlabasak.github.io/mk-partners/?lang=it',
+      'x-default': 'https://damlabasak.github.io/mk-partners',
+    },
+  },
   title: {
     default: 'MK Partners | Hukuki Danışmanlık & Avukatlık',
     template: '%s | MK Partners',
